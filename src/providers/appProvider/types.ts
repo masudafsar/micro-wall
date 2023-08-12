@@ -1,4 +1,4 @@
-import { AppActionEnum, AppModeEnum } from './enums';
+import { AppActionEnum, AppModeEnum } from '.';
 
 export type AppActionType = { type: AppActionEnum.GO_TO_EDIT_MODE } | { type: AppActionEnum.GO_TO_GUEST_MODE };
 

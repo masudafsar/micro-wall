@@ -1,10 +1,15 @@
 import { Box, Button } from '@mui/material';
 import AddTwoToneIcon from '@mui/icons-material/AddTwoTone';
+import { AppActionEnum, useAppState } from '@formaloo/providers/appProvider';
 
 export interface EmptyBlockPropsType {}
 
 export function EmptyBlock({}: EmptyBlockPropsType) {
-  function handleOnAddNewBlockClick() {}
+  const [, appDispatch] = useAppState();
+
+  function handleAddNewBlockClick() {
+    appDispatch({ type: AppActionEnum.openNewBlockModal });
+  }
 
   return (
     <Box
@@ -19,7 +24,7 @@ export function EmptyBlock({}: EmptyBlockPropsType) {
         borderRadius: '1rem',
       }}
     >
-      <Button color="inherit" variant="text" startIcon={<AddTwoToneIcon />} onClick={handleOnAddNewBlockClick}>
+      <Button color="inherit" variant="text" startIcon={<AddTwoToneIcon />} onClick={handleAddNewBlockClick}>
         Add New Block
       </Button>
     </Box>

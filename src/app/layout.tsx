@@ -22,10 +22,6 @@ export default function RootLayout({ children }: PropsWithChildren) {
 
             <Container component="main" sx={{ mt: ['56px', '64px'], py: 3 }}>
               {children}
-
-              <Fab color="primary" aria-label="add" sx={{ position: 'fixed', bottom: '1rem', right: '1rem' }}>
-                <AddTwoToneIcon />
-              </Fab>
             </Container>
           </AppProvider>
         </ThemeProvider>

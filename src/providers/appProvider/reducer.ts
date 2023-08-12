@@ -1,4 +1,5 @@
-import { AppActionEnum, type AppActionType, AppModeEnum, type AppStateType } from '.';
+import { type AppActionType, type AppStateType } from './types';
+import { AppActionEnum, AppModeEnum } from './enums';
 
 export function appReducer(prev: AppStateType, action: AppActionType): AppStateType {
   const next = { ...prev };

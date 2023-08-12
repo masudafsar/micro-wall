@@ -1,4 +1,5 @@
-import { type AppContextType, AppModeEnum, type AppStateType } from '.';
+import { type AppContextType, type AppStateType } from './types';
+import { AppModeEnum } from './enums';
 
 export const appStateDefaultValue: AppStateType = {
   mode: AppModeEnum.EDIT,

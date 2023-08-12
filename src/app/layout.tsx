@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import type { PropsWithChildren } from 'react';
 import { ThemeProvider } from '@formaloo/providers';
-import { Box, Container } from '@mui/material';
+import { Container } from '@mui/material';
 import { AppBar } from '@formaloo/components';
 import { robotoFont } from '@formaloo/themes/robotoFont';
+import { AppProvider } from '@formaloo/providers/appProvider';
 
 export const metadata: Metadata = {
   title: 'MicroWall',
@@ -15,16 +16,13 @@ export default function RootLayout({ children }: PropsWithChildren) {
     <html lang="en">
       <body className={robotoFont.className}>
         <ThemeProvider>
-          <AppBar />
+          <AppProvider>
+            <AppBar />
 
-          <Box
-            component="main"
-            sx={{
-              mt: ['56px', '64px'],
-            }}
-          >
-            <Container>{children}</Container>
-          </Box>
+            <Container component="main" sx={{ mt: ['56px', '64px'], py: 3 }}>
+              {children}
+            </Container>
+          </AppProvider>
         </ThemeProvider>
       </body>
     </html>

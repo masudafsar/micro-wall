@@ -1,4 +1,5 @@
 import { createContext } from 'react';
-import { appContextDefaultValue, type AppContextType } from '.';
+import { type AppContextType } from './types';
+import { appContextDefaultValue } from './constants';
 
 export const AppContext = createContext<AppContextType>(appContextDefaultValue);

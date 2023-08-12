@@ -1,17 +1,32 @@
 import type { Metadata } from 'next';
-import { Roboto } from 'next/font/google';
-
-const robotoStyles = Roboto({ subsets: ['latin'], weight: ['300', '400', '500', '700'] });
+import type { PropsWithChildren } from 'react';
+import { ThemeProvider } from '@formaloo/providers';
+import { Box, Container } from '@mui/material';
+import { AppBar } from '@formaloo/components';
+import { robotoFont } from '@formaloo/themes/robotoFont';
 
 export const metadata: Metadata = {
   title: 'MicroWall',
   description: 'MicroWall powered by Formaloo',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
-      <body className={robotoStyles.className}>{children}</body>
+      <body className={robotoFont.className}>
+        <ThemeProvider>
+          <AppBar />
+
+          <Box
+            component="main"
+            sx={{
+              mt: ['56px', '64px'],
+            }}
+          >
+            <Container>{children}</Container>
+          </Box>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

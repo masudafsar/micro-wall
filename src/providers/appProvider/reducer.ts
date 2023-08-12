@@ -3,11 +3,17 @@ import { AppActionEnum, type AppActionType, AppModeEnum, type AppStateType } fro
 export function appReducer(prev: AppStateType, action: AppActionType): AppStateType {
   const next = { ...prev };
   switch (action.type) {
-    case AppActionEnum.GO_TO_EDIT_MODE:
-      next.mode = AppModeEnum.EDIT;
+    case AppActionEnum.goToEditMode:
+      next.mode = AppModeEnum.edit;
       break;
-    case AppActionEnum.GO_TO_GUEST_MODE:
-      next.mode = AppModeEnum.GUEST;
+    case AppActionEnum.goToViewMode:
+      next.mode = AppModeEnum.view;
+      break;
+    case AppActionEnum.openNewBlockModal:
+      next.isOpenNewBlockModal = true;
+      break;
+    case AppActionEnum.closeNewBlockModal:
+      next.isOpenNewBlockModal = false;
       break;
   }
   return next;

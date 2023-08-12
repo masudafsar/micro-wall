@@ -1,9 +1,11 @@
 export enum AppModeEnum {
-  EDIT = 'EDIT',
-  GUEST = 'GUEST',
+  edit = 'EDIT',
+  view = 'VIEW',
 }
 
 export enum AppActionEnum {
-  GO_TO_EDIT_MODE = 'GO_TO_EDIT_MODE',
-  GO_TO_GUEST_MODE = 'GO_TO_GUEST_MODE',
+  goToEditMode = 'GO_TO_EDIT_MODE',
+  goToViewMode = 'GO_TO_VIEW_MODE',
+  openNewBlockModal = 'OPEN_NEW_BLOCK_MODAL',
+  closeNewBlockModal = 'CLOSE_NEW_BLOCK_MODAL',
 }

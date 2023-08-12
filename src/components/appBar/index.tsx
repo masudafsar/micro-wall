@@ -10,11 +10,11 @@ export interface AppBarPropsType {}
 
 export function AppBar({}: AppBarPropsType) {
   function handlePreviewClick() {
-    appDispatch({ type: AppActionEnum.GO_TO_GUEST_MODE });
+    appDispatch({ type: AppActionEnum.goToViewMode });
   }
 
   function handleStopClick() {
-    appDispatch({ type: AppActionEnum.GO_TO_EDIT_MODE });
+    appDispatch({ type: AppActionEnum.goToEditMode });
   }
 
   const [appState, appDispatch] = useAppState();
@@ -24,14 +24,14 @@ export function AppBar({}: AppBarPropsType) {
         <Toolbar sx={{ px: '0 !important' }}>
           <WebTwoToneIcon sx={{ mr: 2 }} />
           <Typography variant="h6" component="h1" sx={{ whiteSpace: 'nowrap', flexGrow: 1 }}>
-            MicroWall {appState.mode === AppModeEnum.EDIT ? <small>(Edit Mode)</small> : undefined}
+            MicroWall {appState.mode === AppModeEnum.edit ? <small>(Edit Mode)</small> : undefined}
           </Typography>
-          {appState.mode === AppModeEnum.EDIT ? (
+          {appState.mode === AppModeEnum.edit ? (
             <Button color="success" variant="contained" endIcon={<PlayArrowTwoToneIcon />} onClick={handlePreviewClick}>
               Preview
             </Button>
           ) : undefined}
-          {appState.mode === AppModeEnum.GUEST ? (
+          {appState.mode === AppModeEnum.view ? (
             <Button color="error" variant="contained" endIcon={<StopTwoToneIcon />} onClick={handleStopClick}>
               Stop
             </Button>

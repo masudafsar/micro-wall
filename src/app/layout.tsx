@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import type { PropsWithChildren } from 'react';
 import { ThemeProvider } from '@formaloo/providers';
-import { Container } from '@mui/material';
+import { Container, Fab } from '@mui/material';
 import { AppBar } from '@formaloo/components';
 import { robotoFont } from '@formaloo/themes/robotoFont';
 import { AppProvider } from '@formaloo/providers/appProvider';
+import AddTwoToneIcon from '@mui/icons-material/AddTwoTone';
 
 export const metadata: Metadata = {
   title: 'MicroWall',
@@ -21,6 +22,10 @@ export default function RootLayout({ children }: PropsWithChildren) {
 
             <Container component="main" sx={{ mt: ['56px', '64px'], py: 3 }}>
               {children}
+
+              <Fab color="primary" aria-label="add" sx={{ position: 'fixed', bottom: '1rem', right: '1rem' }}>
+                <AddTwoToneIcon />
+              </Fab>
             </Container>
           </AppProvider>
         </ThemeProvider>

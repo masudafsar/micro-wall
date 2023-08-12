@@ -1,5 +1,5 @@
 import { Box, Fab, Typography } from '@mui/material';
-import { AppActionEnum, useAppState } from '@formaloo/providers/appProvider';
+import { AppActionEnum, useAppState } from '@formaloo/providers';
 import { EmptyBlock } from '@formaloo/components/block';
 import { NewBlockModal } from '@formaloo/components/newBlockModal';
 import AddTwoToneIcon from '@mui/icons-material/AddTwoTone';

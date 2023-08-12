@@ -1,6 +1,6 @@
 import { Box, Button } from '@mui/material';
 import AddTwoToneIcon from '@mui/icons-material/AddTwoTone';
-import { AppActionEnum, useAppState } from '@formaloo/providers/appProvider';
+import { AppActionEnum, useAppState } from '@formaloo/providers';
 
 export interface EmptyBlockPropsType {}
 

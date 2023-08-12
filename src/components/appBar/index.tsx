@@ -4,7 +4,7 @@ import { AppBar as MuiAppBar, Button, Container, Toolbar, Typography } from '@mu
 import WebTwoToneIcon from '@mui/icons-material/WebTwoTone';
 import PlayArrowTwoToneIcon from '@mui/icons-material/PlayArrowTwoTone';
 import StopTwoToneIcon from '@mui/icons-material/StopTwoTone';
-import { AppActionEnum, AppModeEnum, useAppState } from '@formaloo/providers/appProvider';
+import { AppActionEnum, AppModeEnum, useAppState } from '@formaloo/providers';
 
 export interface AppBarPropsType {}
 

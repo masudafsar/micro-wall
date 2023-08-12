@@ -1,11 +1,9 @@
 import type { Metadata } from 'next';
 import type { PropsWithChildren } from 'react';
-import { ThemeProvider } from '@formaloo/providers';
-import { Container, Fab } from '@mui/material';
+import { AppProvider, ThemeProvider } from '@formaloo/providers';
+import { Container } from '@mui/material';
 import { AppBar } from '@formaloo/components';
 import { robotoFont } from '@formaloo/themes/robotoFont';
-import { AppProvider } from '@formaloo/providers/appProvider';
-import AddTwoToneIcon from '@mui/icons-material/AddTwoTone';
 
 export const metadata: Metadata = {
   title: 'MicroWall',

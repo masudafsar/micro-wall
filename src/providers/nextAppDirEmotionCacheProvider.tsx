@@ -1,25 +1,25 @@
 'use client';
 
-import * as React from 'react';
 import type { EmotionCache, Options as OptionsOfCreateCache } from '@emotion/cache';
 import createCache from '@emotion/cache';
 import { useServerInsertedHTML } from 'next/navigation';
 import { CacheProvider as DefaultCacheProvider } from '@emotion/react';
-import { SerializedStyles } from '@emotion/utils/dist/declarations/types';
+import { Fragment, JSX, type PropsWithChildren, useState } from 'react';
 
 export type NextAppDirEmotionCacheProviderProps = {
   /** This is the options passed to createCache() from 'import createCache from "@emotion/cache"' */
   options: Omit<OptionsOfCreateCache, 'insertionPoint'>;
   /** By default <CacheProvider /> from 'import { CacheProvider } from "@emotion/react"' */
-  CacheProvider?: (props: { value: EmotionCache; children: React.ReactNode }) => React.JSX.Element | null;
-  children: React.ReactNode;
+  CacheProvider?: (props: PropsWithChildren<{ value: EmotionCache }>) => JSX.Element | null;
 };
 
 // Adapted from https://github.com/garronej/tss-react/blob/main/src/next/appDir.tsx
-export function NextAppDirEmotionCacheProvider(props: NextAppDirEmotionCacheProviderProps) {
-  const { options, CacheProvider = DefaultCacheProvider, children } = props;
-
-  const [registry] = React.useState(() => {
+export function NextAppDirEmotionCacheProvider({
+  children,
+  options,
+  CacheProvider = DefaultCacheProvider,
+}: PropsWithChildren<NextAppDirEmotionCacheProviderProps>) {
+  const [registry] = useState(() => {
     const cache = createCache(options);
     cache.compat = true;
     const prevInsert = cache.insert;
@@ -69,7 +69,7 @@ export function NextAppDirEmotionCacheProvider(props: NextAppDirEmotionCacheProv
     });
 
     return (
-      <React.Fragment>
+      <Fragment>
         {globals.map(({ name, style }) => (
           <style
             key={name}
@@ -85,7 +85,7 @@ export function NextAppDirEmotionCacheProvider(props: NextAppDirEmotionCacheProv
             dangerouslySetInnerHTML={{ __html: styles }}
           />
         )}
-      </React.Fragment>
+      </Fragment>
     );
   });
 

@@ -1,4 +1,4 @@
-import { Box, Fab } from '@mui/material';
+import { Box, Fab, Grid } from '@mui/material';
 import { AppActionEnum, useAppState } from '@formaloo/providers';
 import { NewBlockModal } from '@formaloo/components/newBlockModal';
 import AddTwoToneIcon from '@mui/icons-material/AddTwoTone';
@@ -20,12 +20,17 @@ export function Editor({}: EditorPropsType) {
 
   return (
     <Box>
-      {appState.blocks.map((block) => (
-        <MasterBlock key={block.data.uuid} block={block} />
-      ))}
+      <Grid container spacing={2}>
+        {appState.blocks.map((block) => (
+          <Grid item xs={12} key={block.data.uuid}>
+            <MasterBlock block={block} />
+          </Grid>
+        ))}
 
-      <EmptyBlock />
-
+        <Grid item xs={12}>
+          <EmptyBlock />
+        </Grid>
+      </Grid>
       <NewBlockModal open={appState.isOpenNewBlockModal} onClose={handleDismissNewBlockModal} />
 
       <Fab color="primary" sx={{ position: 'fixed', bottom: '1rem', right: '1rem' }} onClick={handleAddNewBlockClick}>

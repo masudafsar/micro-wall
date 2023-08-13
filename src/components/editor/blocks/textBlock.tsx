@@ -1,13 +1,11 @@
 import { TextBlockType } from '@formaloo/types/block.type';
 import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
   Box,
   Button,
-  Card,
-  CardContent,
-  CardHeader,
   IconButton,
-  List,
-  ListItem,
   Stack,
   TextField,
   Typography,
@@ -18,12 +16,14 @@ import { BlockEnum } from '@formaloo/enums';
 import DeleteTwoToneIcon from '@mui/icons-material/DeleteTwoTone';
 import ExpandMoreTwoToneIcon from '@mui/icons-material/ExpandMoreTwoTone';
 import { useState } from 'react';
+import { blocksInfo } from '@formaloo/constants';
 
 export interface TextBlockPropsType {
   data: TextBlockType;
 }
 
 export function TextBlock({ data }: TextBlockPropsType) {
+  const { icon: BlockIcon } = blocksInfo[BlockEnum.text];
   const [, appDispatch] = useAppState();
   const [isExpandForm, setIsExpandForm] = useState<boolean>(false);
 
@@ -36,6 +36,8 @@ export function TextBlock({ data }: TextBlockPropsType) {
   });
 
   function handleFormSubmit(data: TextBlockType) {
+    setIsExpandForm(false);
+
     appDispatch({
       type: AppActionEnum.updateBlock,
       payload: {
@@ -46,38 +48,36 @@ export function TextBlock({ data }: TextBlockPropsType) {
   }
 
   function handleRemoveBlock() {
-    setIsExpandForm(false);
-
     appDispatch({
       type: AppActionEnum.removeBlock,
       uuid: data.uuid,
     });
   }
 
-  function handleExpandForm() {
-    setIsExpandForm((prev) => !prev);
-  }
-
   return (
-    <Card>
-      <CardHeader
-        title={
-          <Typography variant="h6">
-            {data.title} <small>(Text Block)</small>
-          </Typography>
-        }
-        action={
-          <>
-            <IconButton onClick={handleRemoveBlock}>
-              <DeleteTwoToneIcon />
-            </IconButton>
-            <IconButton onClick={handleExpandForm}>
-              <ExpandMoreTwoToneIcon />
-            </IconButton>
-          </>
-        }
-      />
-      <CardContent sx={{ display: isExpandForm ? 'block' : 'none' }}>
+    <Accordion
+      expanded={isExpandForm}
+      onChange={(event, expanded) => {
+        setIsExpandForm(expanded);
+      }}
+    >
+      <AccordionSummary
+        id={`accordion-header-${data.uuid}`}
+        aria-controls={`accordion-content-${data.uuid}`}
+        expandIcon={<ExpandMoreTwoToneIcon />}
+      >
+        <Box sx={{ width: '100%', display: 'flex', alignItems: 'center', flexWrap: 'nowrap', gap: 1 }}>
+          <BlockIcon />
+
+          <Typography sx={{ flex: '1', color: 'text.secondary' }}>{data.title}</Typography>
+
+          <IconButton onClick={handleRemoveBlock}>
+            <DeleteTwoToneIcon />
+          </IconButton>
+        </Box>
+      </AccordionSummary>
+
+      <AccordionDetails>
         <Box component="form" onSubmit={handleSubmit(handleFormSubmit)}>
           <Stack spacing={1}>
             <TextField label="Title" fullWidth {...register('title', {})} />
@@ -97,7 +97,7 @@ export function TextBlock({ data }: TextBlockPropsType) {
             </Box>
           </Stack>
         </Box>
-      </CardContent>
-    </Card>
+      </AccordionDetails>
+    </Accordion>
   );
 }

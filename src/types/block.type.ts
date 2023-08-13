@@ -1,5 +1,6 @@
 import { BlockEnum } from '@formaloo/enums';
-import { SvgIconComponent } from '@mui/icons-material';
+import { type SvgIconComponent } from '@mui/icons-material';
+import { type Variant } from '@mui/material/styles/createTypography';
 
 export interface BlockInfoType {
   title: string;
@@ -10,10 +11,12 @@ export interface BlockInfoType {
 export interface BaseBlockType {
   uuid: string;
   title?: string;
-  description?: string;
+  helpNote?: string;
 }
 
-export interface TextBlockType extends BaseBlockType {}
+export interface TextBlockType extends Omit<BaseBlockType, 'helpNote'> {
+  content: string;
+}
 
 export interface ImageBlockType extends BaseBlockType {}
 

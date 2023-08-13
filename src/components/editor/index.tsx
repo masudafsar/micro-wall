@@ -1,8 +1,9 @@
-import { Box, Fab, Typography } from '@mui/material';
+import { Box, Fab } from '@mui/material';
 import { AppActionEnum, useAppState } from '@formaloo/providers';
-import { EmptyBlock } from '@formaloo/components/block';
 import { NewBlockModal } from '@formaloo/components/newBlockModal';
 import AddTwoToneIcon from '@mui/icons-material/AddTwoTone';
+import { MasterBlock } from './masterBlock';
+import { EmptyBlock } from './blocks';
 
 export interface EditorPropsType {}
 
@@ -20,9 +21,7 @@ export function Editor({}: EditorPropsType) {
   return (
     <Box>
       {appState.blocks.map((block) => (
-        <Box key={block.data.uuid}>
-          <Typography>{block.type}</Typography>
-        </Box>
+        <MasterBlock key={block.data.uuid} block={block} />
       ))}
 
       <EmptyBlock />

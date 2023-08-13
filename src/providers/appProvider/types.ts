@@ -6,7 +6,9 @@ export type AppActionType =
   | { type: AppActionEnum.goToViewMode }
   | { type: AppActionEnum.openNewBlockModal }
   | { type: AppActionEnum.closeNewBlockModal }
-  | { type: AppActionEnum.addNewBlock; payload: BlockType };
+  | { type: AppActionEnum.addNewBlock; payload: BlockType }
+  | { type: AppActionEnum.updateBlock; payload: BlockType }
+  | { type: AppActionEnum.removeBlock; uuid: string };
 
 export type AppDispatchType = (value: AppActionType) => void;
 

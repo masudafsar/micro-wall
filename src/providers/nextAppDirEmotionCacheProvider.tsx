@@ -4,13 +4,13 @@ import type { EmotionCache, Options as OptionsOfCreateCache } from '@emotion/cac
 import createCache from '@emotion/cache';
 import { useServerInsertedHTML } from 'next/navigation';
 import { CacheProvider as DefaultCacheProvider } from '@emotion/react';
-import { Fragment, JSX, type PropsWithChildren, useState } from 'react';
+import { Fragment, type PropsWithChildren, type ProviderExoticComponent, type ProviderProps, useState } from 'react';
 
 export type NextAppDirEmotionCacheProviderProps = {
   /** This is the options passed to createCache() from 'import createCache from "@emotion/cache"' */
   options: Omit<OptionsOfCreateCache, 'insertionPoint'>;
   /** By default <CacheProvider /> from 'import { CacheProvider } from "@emotion/react"' */
-  CacheProvider?: (props: PropsWithChildren<{ value: EmotionCache }>) => JSX.Element | null;
+  CacheProvider?: ProviderExoticComponent<ProviderProps<EmotionCache>>;
 };
 
 // Adapted from https://github.com/garronej/tss-react/blob/main/src/next/appDir.tsx

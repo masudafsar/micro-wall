@@ -5,9 +5,14 @@ import { BlockInfoType } from '@formaloo/types/block.type';
 export interface BlockItemPropsType {
   type: BlockEnum;
   info: BlockInfoType;
+  onItemClick?: (type: BlockEnum) => void;
 }
 
-export function BlockItem({ type, info: { title, icon: Icon, isUnderDevelop } }: BlockItemPropsType) {
+export function BlockItem({ type, onItemClick, info: { title, icon: Icon, isUnderDevelop } }: BlockItemPropsType) {
+  function handleClick() {
+    onItemClick?.(type);
+  }
+
   return (
     <Grid item xs={4}>
       <Button
@@ -15,9 +20,7 @@ export function BlockItem({ type, info: { title, icon: Icon, isUnderDevelop } }:
         variant="outlined"
         fullWidth
         disabled={isUnderDevelop}
-        onClick={() => {
-          console.log(type);
-        }}
+        onClick={handleClick}
         sx={{
           height: ['100px'],
           display: 'flex',

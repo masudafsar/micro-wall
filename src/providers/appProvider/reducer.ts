@@ -15,6 +15,10 @@ export function appReducer(prev: AppStateType, action: AppActionType): AppStateT
     case AppActionEnum.closeNewBlockModal:
       next.isOpenNewBlockModal = false;
       break;
+    case AppActionEnum.addNewBlock:
+      const isCalledTwice = next.blocks.findIndex((block) => block.data.uuid === action.payload.data.uuid) !== -1;
+      !isCalledTwice && next.blocks.push(action.payload);
+      break;
   }
   return next;
 }

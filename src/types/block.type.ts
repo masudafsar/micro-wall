@@ -9,8 +9,8 @@ export interface BlockInfoType {
 
 export interface BaseBlockType {
   uuid: string;
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
 }
 
 export interface TextBlockType extends BaseBlockType {}

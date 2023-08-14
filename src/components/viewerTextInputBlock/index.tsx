@@ -1,4 +1,8 @@
+'use client';
+
 import { Box, Stack, TextField, Typography } from '@mui/material';
+import { useFormContext } from 'react-hook-form';
+import { BlockEnum } from '@formaloo/enums';
 import { type TextInputBlockType } from '@formaloo/types/block.type';
 
 export interface ViewerTextInputBlockPropsType {
@@ -6,6 +10,12 @@ export interface ViewerTextInputBlockPropsType {
 }
 
 export function ViewerTextInputBlock({ data }: ViewerTextInputBlockPropsType) {
+  const fieldName = `${BlockEnum.textInput}-${data.uuid}`;
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
+
   return (
     <Box>
       <Stack spacing={1}>
@@ -13,7 +23,18 @@ export function ViewerTextInputBlock({ data }: ViewerTextInputBlockPropsType) {
           {data.title}
         </Typography>
 
-        <TextField label={data.label} name={`text-input-${data.uuid}`} required={data.isRequired} />
+        <TextField
+          label={data.label}
+          {...register(fieldName, {
+            ...(data.isRequired
+              ? {
+                  required: `${data.label} field is required.`,
+                }
+              : {}),
+          })}
+          error={Boolean(errors[fieldName])}
+          helperText={errors[fieldName] && errors[fieldName].message}
+        />
 
         {data.helpNote ? (
           <Typography component="p" variant="body2">

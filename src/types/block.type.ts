@@ -34,7 +34,11 @@ export interface MarkupInputBlockType extends BaseBlockType {}
 
 export interface CalendarInputBlockType extends BaseBlockType {}
 
-export interface PhoneInputBlockType extends BaseBlockType {}
+export interface PhoneInputBlockType extends BaseBlockType {
+  label?: string;
+  isRequired: boolean;
+  withCountryCode: boolean;
+}
 
 export interface RangeInputBlockType extends BaseBlockType {}
 

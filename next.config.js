@@ -8,9 +8,9 @@ const nextConfig = {
     },
   },
   images: {
+    minimumCacheTTL: 20,
     remotePatterns: [
       {
-        minimumCacheTTL: 20,
         protocol: 'https',
         hostname: '*.unsplash.com',
         port: '',

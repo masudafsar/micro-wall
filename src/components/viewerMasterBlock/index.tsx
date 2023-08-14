@@ -1,7 +1,8 @@
 import { ViewerTextBlock } from '@formaloo/components';
+import { ViewerImageBlock } from '@formaloo/components/viewerImageBlock';
 import { BlockEnum } from '@formaloo/enums';
 import { type BlockType } from '@formaloo/types';
-import { type TextBlockType } from '@formaloo/types/block.type';
+import { type ImageBlockType, type TextBlockType } from '@formaloo/types/block.type';
 
 export interface ViewerMasterBlockPropsType {
   block: BlockType;
@@ -12,7 +13,7 @@ export function ViewerMasterBlock({ block: { type, data } }: ViewerMasterBlockPr
     case BlockEnum.text:
       return <ViewerTextBlock data={data as TextBlockType} />;
     case BlockEnum.image:
-      break;
+      return <ViewerImageBlock data={data as ImageBlockType} />;
     case BlockEnum.html:
       break;
     case BlockEnum.textInput:

@@ -1,6 +1,6 @@
 'use client';
 
-import { Checkbox, FormControlLabel, TextField } from '@mui/material';
+import { Checkbox, FormControlLabel, TextField, Typography } from '@mui/material';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { EditorBlockWrapper } from '@formaloo/components';
@@ -66,7 +66,27 @@ export function EditorImageBlock({ data }: EditorImageBlockPropsType) {
         helperText={errors.imageUrl && errors.imageUrl.message}
       />
 
-      <FormControlLabel control={<Checkbox />} label="Full Width" {...register('isFullWidth')} />
+      <TextField
+        label="Height"
+        type="number"
+        fullWidth
+        {...register('height', {
+          required: 'Height field is required.',
+          valueAsNumber: true,
+          min: { value: 0, message: 'Height must between 0 and 1000' },
+          max: { value: 1000, message: 'Height must between 0 and 1000' },
+        })}
+        error={Boolean(errors.height)}
+        helperText={errors.height && errors.height.message}
+      />
+
+      <FormControlLabel control={<Checkbox />} label="Covered" {...register('isCovered')} />
+
+      <Typography variant="body2">
+        Use unsplash random image as example
+        <br />
+        https://source.unsplash.com/random
+      </Typography>
     </EditorBlockWrapper>
   );
 }

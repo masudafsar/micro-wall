@@ -14,7 +14,7 @@ export interface EditorPhoneInputBlockPropsType {
 }
 
 export function EditorPhoneInputBlock({ data }: EditorPhoneInputBlockPropsType) {
-  const { icon: BlockIcon } = blocksInfo[BlockEnum.textInput];
+  const { icon: BlockIcon } = blocksInfo[BlockEnum.phoneInput];
   const [, appDispatch] = useAppState();
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
@@ -72,9 +72,15 @@ export function EditorPhoneInputBlock({ data }: EditorPhoneInputBlockPropsType) 
         helperText={errors.helpNote && errors.helpNote.message}
       />
 
-      <FormControlLabel control={<Checkbox />} label="Required" {...register('isRequired')} />
+      <FormControlLabel
+        label="Required"
+        control={<Checkbox defaultChecked={data.isRequired} {...register('isRequired')} />}
+      />
 
-      <FormControlLabel control={<Checkbox />} label="With Country Code" {...register('withCountryCode')} />
+      <FormControlLabel
+        label="With Country Code"
+        control={<Checkbox defaultChecked={data.withCountryCode} {...register('withCountryCode')} />}
+      />
     </EditorBlockWrapper>
   );
 }

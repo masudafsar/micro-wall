@@ -72,7 +72,10 @@ export function EditorTextInputBlock({ data }: EditorTextInputBlockPropsType) {
         helperText={errors.helpNote && errors.helpNote.message}
       />
 
-      <FormControlLabel control={<Checkbox />} label="Required" {...register('isRequired')} />
+      <FormControlLabel
+        label="Required"
+        control={<Checkbox defaultChecked={data.isRequired} {...register('isRequired')} />}
+      />
     </EditorBlockWrapper>
   );
 }

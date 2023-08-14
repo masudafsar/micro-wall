@@ -1,7 +1,7 @@
+import { EditorTextBlock } from '@formaloo/components/editorTextBlock';
 import { BlockEnum } from '@formaloo/enums';
 import { type BlockType } from '@formaloo/types';
 import { type TextBlockType } from '@formaloo/types/block.type';
-import { EditorTextBlock } from '../editorTextBlock';
 
 export interface EditorMasterBlockPropsType {
   block: BlockType;

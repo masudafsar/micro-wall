@@ -1,11 +1,11 @@
 import { Typography } from '@mui/material';
-import { TextBlockType } from '@formaloo/types/block.type';
+import { type TextBlockType } from '@formaloo/types/block.type';
 
-export interface TextBlockPropsType {
+export interface ViewerTextBlockPropsType {
   data: TextBlockType;
 }
 
-export function TextBlock({ data }: TextBlockPropsType) {
+export function ViewerTextBlock({ data }: ViewerTextBlockPropsType) {
   return (
     <>
       {data.title ? <Typography variant="h3">{data.title}</Typography> : undefined}

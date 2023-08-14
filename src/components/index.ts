@@ -6,3 +6,6 @@ export { EditorMasterBlock, type EditorMasterBlockPropsType } from './editorMast
 export { EditorBlockWrapper, type EditorBlockWrapperPropsType } from './editorBlockWrapper';
 export { EditorAddBlock, type EditorAddBlockPropsType } from './editorAddBlock';
 export { EditorTextBlock, type EditorTextBlockPropsType } from './editorTextBlock';
+
+export { ViewerMasterBlock, type ViewerMasterBlockPropsType } from './viewerMasterBlock';
+export { ViewerTextBlock, type ViewerTextBlockPropsType } from './viewerTextBlock';

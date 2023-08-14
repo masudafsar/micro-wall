@@ -53,7 +53,7 @@ export function EditorBlockWrapper({
         expandIcon={<ExpandMoreTwoToneIcon />}
       >
         <Box sx={{ width: '100%', display: 'flex', alignItems: 'center', flexWrap: 'nowrap', gap: 1 }}>
-          <Icon />
+          {Icon ? <Icon /> : undefined}
 
           <Typography sx={{ flex: '1', color: 'text.secondary' }}>{title}</Typography>
 

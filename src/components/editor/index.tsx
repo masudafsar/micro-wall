@@ -1,8 +1,7 @@
 import AddTwoToneIcon from '@mui/icons-material/AddTwoTone';
 import { Box, Divider, Fab, Stack } from '@mui/material';
-import { EditorAddBlock, NewBlockModal } from '@formaloo/components';
+import { EditorAddBlock, EditorMasterBlock, NewBlockModal } from '@formaloo/components';
 import { AppActionEnum, useAppState } from '@formaloo/providers';
-import { MasterBlock } from './masterBlock';
 
 export interface EditorPropsType {}
 
@@ -21,7 +20,7 @@ export function Editor({}: EditorPropsType) {
     <Box>
       <Stack>
         {appState.blocks.map((block) => (
-          <MasterBlock key={block.data.uuid} block={block} />
+          <EditorMasterBlock key={block.data.uuid} block={block} />
         ))}
 
         {appState.blocks.length !== 0 ? <Divider sx={{ my: 2 }} /> : undefined}

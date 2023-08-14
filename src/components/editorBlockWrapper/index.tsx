@@ -13,7 +13,7 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
-import { type FormEvent, type PropsWithChildren, useState } from 'react';
+import { type FormEvent, type PropsWithChildren } from 'react';
 import { AppActionEnum, useAppState } from '@formaloo/providers';
 
 export interface EditorBlockWrapperPropsType {
@@ -21,6 +21,8 @@ export interface EditorBlockWrapperPropsType {
   title: string;
   icon?: SvgIconComponent;
   onSubmit?: <T>(event: FormEvent<T>) => void;
+  isExpanded: boolean;
+  onExpandedChange: (isOpen: boolean) => void;
 }
 
 export function EditorBlockWrapper({
@@ -29,9 +31,10 @@ export function EditorBlockWrapper({
   icon: Icon,
   onSubmit,
   children,
+  isExpanded,
+  onExpandedChange,
 }: PropsWithChildren<EditorBlockWrapperPropsType>) {
   const [, appDispatch] = useAppState();
-  const [isExpandForm, setIsExpandForm] = useState<boolean>(false);
 
   function handleRemoveBlock() {
     appDispatch({
@@ -42,9 +45,9 @@ export function EditorBlockWrapper({
 
   return (
     <Accordion
-      expanded={isExpandForm}
+      expanded={isExpanded}
       onChange={(event, expanded) => {
-        setIsExpandForm(expanded);
+        onExpandedChange(expanded);
       }}
     >
       <AccordionSummary

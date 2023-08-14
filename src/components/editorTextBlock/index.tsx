@@ -1,6 +1,7 @@
 'use client';
 
 import { TextField } from '@mui/material';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { EditorBlockWrapper } from '@formaloo/components';
 import { blocksInfo } from '@formaloo/constants';
@@ -15,6 +16,7 @@ export interface EditorTextBlockPropsType {
 export function EditorTextBlock({ data }: EditorTextBlockPropsType) {
   const { icon: BlockIcon } = blocksInfo[BlockEnum.text];
   const [, appDispatch] = useAppState();
+  const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
   const {
     register,
@@ -25,6 +27,7 @@ export function EditorTextBlock({ data }: EditorTextBlockPropsType) {
   });
 
   function handleFormSubmit(data: TextBlockType) {
+    setIsExpanded(false);
     appDispatch({
       type: AppActionEnum.updateBlock,
       payload: {
@@ -35,7 +38,14 @@ export function EditorTextBlock({ data }: EditorTextBlockPropsType) {
   }
 
   return (
-    <EditorBlockWrapper id={data.uuid} title={data.title} icon={BlockIcon} onSubmit={handleSubmit(handleFormSubmit)}>
+    <EditorBlockWrapper
+      id={data.uuid}
+      title={data.title}
+      icon={BlockIcon}
+      isExpanded={isExpanded}
+      onExpandedChange={setIsExpanded}
+      onSubmit={handleSubmit(handleFormSubmit)}
+    >
       <TextField
         label="Title"
         fullWidth

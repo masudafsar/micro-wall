@@ -31,7 +31,7 @@ export const blocksInfo: { [key in keyof typeof BlockEnum]: BlockInfoType } = {
   textInput: {
     title: 'Text Input Block',
     icon: TitleTwoToneIcon,
-    isUnderDevelop: true,
+    isUnderDevelop: false,
   },
   markupInput: {
     title: 'Markup Input Block',

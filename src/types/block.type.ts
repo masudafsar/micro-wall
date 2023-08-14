@@ -24,7 +24,10 @@ export interface ImageBlockType extends BaseBlockType {
 
 export interface HtmlBlockType extends BaseBlockType {}
 
-export interface TextInputBlockType extends BaseBlockType {}
+export interface TextInputBlockType extends BaseBlockType {
+  label?: string;
+  isRequired: boolean;
+}
 
 export interface MarkupInputBlockType extends BaseBlockType {}
 

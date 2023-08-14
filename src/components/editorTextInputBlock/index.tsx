@@ -7,14 +7,14 @@ import { EditorBlockWrapper } from '@formaloo/components';
 import { blocksInfo } from '@formaloo/constants';
 import { BlockEnum } from '@formaloo/enums';
 import { AppActionEnum, useAppState } from '@formaloo/providers';
-import { type ImageBlockType } from '@formaloo/types/block.type';
+import { type TextInputBlockType } from '@formaloo/types/block.type';
 
-export interface EditorImageBlockPropsType {
-  data: ImageBlockType;
+export interface EditorTextInputBlockPropsType {
+  data: TextInputBlockType;
 }
 
-export function EditorImageBlock({ data }: EditorImageBlockPropsType) {
-  const { icon: BlockIcon } = blocksInfo[BlockEnum.image];
+export function EditorTextInputBlock({ data }: EditorTextInputBlockPropsType) {
+  const { icon: BlockIcon } = blocksInfo[BlockEnum.textInput];
   const [, appDispatch] = useAppState();
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
@@ -22,16 +22,16 @@ export function EditorImageBlock({ data }: EditorImageBlockPropsType) {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<ImageBlockType>({
+  } = useForm<TextInputBlockType>({
     defaultValues: data,
   });
 
-  function handleFormSubmit(data: ImageBlockType) {
+  function handleFormSubmit(data: TextInputBlockType) {
     setIsExpanded(false);
     appDispatch({
       type: AppActionEnum.updateBlock,
       payload: {
-        type: BlockEnum.image,
+        type: BlockEnum.textInput,
         data: data,
       },
     });
@@ -57,16 +57,22 @@ export function EditorImageBlock({ data }: EditorImageBlockPropsType) {
       />
 
       <TextField
-        label="Image Url"
+        label="Help Note"
         fullWidth
-        {...register('imageUrl', {
-          required: 'Image Url field is required.',
-        })}
-        error={Boolean(errors.imageUrl)}
-        helperText={errors.imageUrl && errors.imageUrl.message}
+        {...register('helpNote', {})}
+        error={Boolean(errors.helpNote)}
+        helperText={errors.helpNote && errors.helpNote.message}
       />
 
-      <FormControlLabel control={<Checkbox />} label="Full Width" {...register('isFullWidth')} />
+      <TextField
+        label="Label"
+        fullWidth
+        {...register('label', {})}
+        error={Boolean(errors.label)}
+        helperText={errors.label && errors.label.message}
+      />
+
+      <FormControlLabel control={<Checkbox />} label="Required" {...register('isRequired')} />
     </EditorBlockWrapper>
   );
 }

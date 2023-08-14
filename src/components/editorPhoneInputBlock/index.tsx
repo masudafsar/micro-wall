@@ -7,14 +7,14 @@ import { EditorBlockWrapper } from '@formaloo/components';
 import { blocksInfo } from '@formaloo/constants';
 import { BlockEnum } from '@formaloo/enums';
 import { AppActionEnum, useAppState } from '@formaloo/providers';
-import { type TextInputBlockType } from '@formaloo/types/block.type';
+import { type PhoneInputBlockType } from '@formaloo/types/block.type';
 
-export interface EditorTextInputBlockPropsType {
-  data: TextInputBlockType;
+export interface EditorPhoneInputBlockPropsType {
+  data: PhoneInputBlockType;
 }
 
-export function EditorTextInputBlock({ data }: EditorTextInputBlockPropsType) {
-  const { icon: BlockIcon } = blocksInfo[BlockEnum.textInput];
+export function EditorPhoneInputBlock({ data }: EditorPhoneInputBlockPropsType) {
+  const { icon: BlockIcon } = blocksInfo[BlockEnum.phoneInput];
   const [, appDispatch] = useAppState();
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
@@ -22,16 +22,16 @@ export function EditorTextInputBlock({ data }: EditorTextInputBlockPropsType) {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<TextInputBlockType>({
+  } = useForm<PhoneInputBlockType>({
     defaultValues: data,
   });
 
-  function handleFormSubmit(data: TextInputBlockType) {
+  function handleFormSubmit(data: PhoneInputBlockType) {
     setIsExpanded(false);
     appDispatch({
       type: AppActionEnum.updateBlock,
       payload: {
-        type: BlockEnum.textInput,
+        type: BlockEnum.phoneInput,
         data: data,
       },
     });
@@ -75,6 +75,11 @@ export function EditorTextInputBlock({ data }: EditorTextInputBlockPropsType) {
       <FormControlLabel
         label="Required"
         control={<Checkbox defaultChecked={data.isRequired} {...register('isRequired')} />}
+      />
+
+      <FormControlLabel
+        label="With Country Code"
+        control={<Checkbox defaultChecked={data.withCountryCode} {...register('withCountryCode')} />}
       />
     </EditorBlockWrapper>
   );

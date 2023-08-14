@@ -80,7 +80,10 @@ export function EditorImageBlock({ data }: EditorImageBlockPropsType) {
         helperText={errors.height && errors.height.message}
       />
 
-      <FormControlLabel control={<Checkbox />} label="Covered" {...register('isCovered')} />
+      <FormControlLabel
+        label="Covered"
+        control={<Checkbox defaultChecked={data.isCovered} {...register('isCovered')} />}
+      />
 
       <Typography variant="body2">
         Use unsplash random image as example

@@ -46,7 +46,7 @@ export const blocksInfo: { [key in keyof typeof BlockEnum]: BlockInfoType } = {
   phoneInput: {
     title: 'Phone Input Block',
     icon: DialpadTwoToneIcon,
-    isUnderDevelop: true,
+    isUnderDevelop: false,
   },
   rangeInput: {
     title: 'Range Input Block',

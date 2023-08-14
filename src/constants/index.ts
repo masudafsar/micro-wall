@@ -1,1 +1,1 @@
-export * from './blocksInfo';
+export { blocksInfo } from './blocksInfo';

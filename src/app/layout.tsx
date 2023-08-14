@@ -1,8 +1,8 @@
-import type { Metadata } from 'next';
-import type { PropsWithChildren } from 'react';
-import { AppProvider, ThemeProvider } from '@formaloo/providers';
 import { Box, Container } from '@mui/material';
+import { type Metadata } from 'next';
+import { type PropsWithChildren } from 'react';
 import { AppBar } from '@formaloo/components';
+import { AppProvider, ThemeProvider } from '@formaloo/providers';
 import { robotoFont } from '@formaloo/themes/robotoFont';
 
 export const metadata: Metadata = {

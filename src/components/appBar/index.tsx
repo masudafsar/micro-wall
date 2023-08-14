@@ -1,9 +1,9 @@
 'use client';
 
-import { AppBar as MuiAppBar, Button, Container, Toolbar, Typography } from '@mui/material';
-import WebTwoToneIcon from '@mui/icons-material/WebTwoTone';
 import PlayArrowTwoToneIcon from '@mui/icons-material/PlayArrowTwoTone';
 import StopTwoToneIcon from '@mui/icons-material/StopTwoTone';
+import WebTwoToneIcon from '@mui/icons-material/WebTwoTone';
+import { AppBar as MuiAppBar, Button, Container, Toolbar, Typography } from '@mui/material';
 import { AppActionEnum, AppModeEnum, useAppState } from '@formaloo/providers';
 
 export interface AppBarPropsType {}

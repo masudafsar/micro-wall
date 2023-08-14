@@ -1,8 +1,8 @@
-import { blocksInfo } from '@formaloo/constants';
 import { Grid } from '@mui/material';
-import { BlockItem } from '@formaloo/components/newBlockModal/blockItem';
+import { blocksInfo } from '@formaloo/constants';
 import { BlockEnum } from '@formaloo/enums';
-import { BlockInfoType } from '@formaloo/types/block.type';
+import { type BlockInfoType } from '@formaloo/types/block.type';
+import { BlockItem } from '.';
 
 export interface BlockListPropsType {
   onItemClick: (type: BlockEnum) => void;

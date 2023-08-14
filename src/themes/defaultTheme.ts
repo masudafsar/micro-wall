@@ -1,7 +1,7 @@
 import { createTheme } from '@mui/material/styles';
 import { robotoFont } from '@formaloo/themes/robotoFont';
 
-export const theme = createTheme({
+export const defaultTheme = createTheme({
   palette: {
     mode: 'light',
   },

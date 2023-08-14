@@ -1,7 +1,7 @@
-import { type BlockType } from '@formaloo/types';
 import { BlockEnum } from '@formaloo/enums';
-import { TextBlock } from './blocks';
+import { type BlockType } from '@formaloo/types';
 import { type TextBlockType } from '@formaloo/types/block.type';
+import { TextBlock } from './blocks';
 
 export interface MasterBlockPropsType {
   block: BlockType;

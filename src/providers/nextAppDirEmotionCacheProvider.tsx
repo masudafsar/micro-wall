@@ -1,9 +1,8 @@
 'use client';
 
-import type { EmotionCache, Options as OptionsOfCreateCache } from '@emotion/cache';
-import createCache from '@emotion/cache';
-import { useServerInsertedHTML } from 'next/navigation';
+import createCache, { type EmotionCache, type Options as OptionsOfCreateCache } from '@emotion/cache';
 import { CacheProvider as DefaultCacheProvider } from '@emotion/react';
+import { useServerInsertedHTML } from 'next/navigation';
 import { Fragment, type PropsWithChildren, type ProviderExoticComponent, type ProviderProps, useState } from 'react';
 
 export type NextAppDirEmotionCacheProviderProps = {

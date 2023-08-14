@@ -1,5 +1,5 @@
+import { type BlockType } from '@formaloo/types';
 import { AppActionEnum, AppModeEnum } from '.';
-import type { BlockType } from '@formaloo/types';
 
 export type AppActionType =
   | { type: AppActionEnum.goToEditMode }

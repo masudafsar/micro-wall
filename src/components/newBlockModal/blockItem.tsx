@@ -1,6 +1,6 @@
 import { Button, Grid, Typography } from '@mui/material';
 import { BlockEnum } from '@formaloo/enums';
-import { BlockInfoType } from '@formaloo/types/block.type';
+import { type BlockInfoType } from '@formaloo/types/block.type';
 
 export interface BlockItemPropsType {
   type: BlockEnum;

@@ -1,1 +1,1 @@
-export * from './textBlock';
+export { TextBlock, type TextBlockPropsType } from './textBlock';

@@ -1,17 +1,16 @@
+import AttachFileTwoToneIcon from '@mui/icons-material/AttachFileTwoTone';
+import CalendarMonthTwoToneIcon from '@mui/icons-material/CalendarMonthTwoTone';
+import ChecklistTwoToneIcon from '@mui/icons-material/ChecklistTwoTone';
+import CodeTwoToneIcon from '@mui/icons-material/CodeTwoTone';
+import DialpadTwoToneIcon from '@mui/icons-material/DialpadTwoTone';
+import FormatSizeTwoToneIcon from '@mui/icons-material/FormatSizeTwoTone';
+import ImageTwoToneIcon from '@mui/icons-material/ImageTwoTone';
+import ListTwoToneIcon from '@mui/icons-material/ListTwoTone';
+import NotesTwoToneIcon from '@mui/icons-material/NotesTwoTone';
+import NumbersTwoToneIcon from '@mui/icons-material/NumbersTwoTone';
+import TitleTwoToneIcon from '@mui/icons-material/TitleTwoTone';
 import { BlockEnum } from '@formaloo/enums';
 import { BlockInfoType } from '@formaloo/types/block.type';
-
-import NotesTwoToneIcon from '@mui/icons-material/NotesTwoTone';
-import ImageTwoToneIcon from '@mui/icons-material/ImageTwoTone';
-import CodeTwoToneIcon from '@mui/icons-material/CodeTwoTone';
-import TitleTwoToneIcon from '@mui/icons-material/TitleTwoTone';
-import FormatSizeTwoToneIcon from '@mui/icons-material/FormatSizeTwoTone';
-import CalendarMonthTwoToneIcon from '@mui/icons-material/CalendarMonthTwoTone';
-import DialpadTwoToneIcon from '@mui/icons-material/DialpadTwoTone';
-import NumbersTwoToneIcon from '@mui/icons-material/NumbersTwoTone';
-import ListTwoToneIcon from '@mui/icons-material/ListTwoTone';
-import ChecklistTwoToneIcon from '@mui/icons-material/ChecklistTwoTone';
-import AttachFileTwoToneIcon from '@mui/icons-material/AttachFileTwoTone';
 
 export const blocksInfo: { [key in keyof typeof BlockEnum]: BlockInfoType } = {
   text: {

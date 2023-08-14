@@ -1,6 +1,6 @@
+import { Box } from '@mui/material';
 import { useAppState } from '@formaloo/providers';
 import { MasterBlock } from './masterBlock';
-import { Box } from '@mui/material';
 
 export interface ViewerPropsType {}
 

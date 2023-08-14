@@ -1,12 +1,12 @@
 'use client';
 
-import { TextBlockType } from '@formaloo/types/block.type';
 import { TextField } from '@mui/material';
 import { useForm } from 'react-hook-form';
-import { AppActionEnum, useAppState } from '@formaloo/providers';
-import { BlockEnum } from '@formaloo/enums';
+import { EditorBlockWrapper } from '@formaloo/components';
 import { blocksInfo } from '@formaloo/constants';
-import { EditorBlockWrapper } from '@formaloo/components/editorBlockWrapper';
+import { BlockEnum } from '@formaloo/enums';
+import { AppActionEnum, useAppState } from '@formaloo/providers';
+import { type TextBlockType } from '@formaloo/types/block.type';
 
 export interface EditorTextBlockPropsType {
   data: TextBlockType;

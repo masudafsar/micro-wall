@@ -1,5 +1,5 @@
-import { BlockEnum } from '@formaloo/enums';
 import { type SvgIconComponent } from '@mui/icons-material';
+import { BlockEnum } from '@formaloo/enums';
 
 export interface BlockInfoType {
   title: string;

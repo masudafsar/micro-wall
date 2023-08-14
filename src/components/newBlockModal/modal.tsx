@@ -1,11 +1,11 @@
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle } from '@mui/material';
-import { BlockList } from '.';
-import { AppActionEnum, useAppState } from '@formaloo/providers';
-import { BlockType } from '@formaloo/types';
-import { BlockEnum } from '@formaloo/enums';
 import { v4 as uuid } from 'uuid';
-import { BlockInfoType } from '@formaloo/types/block.type';
 import { blocksInfo } from '@formaloo/constants';
+import { BlockEnum } from '@formaloo/enums';
+import { AppActionEnum, useAppState } from '@formaloo/providers';
+import { type BlockType } from '@formaloo/types';
+import { type BlockInfoType } from '@formaloo/types/block.type';
+import { BlockList } from '.';
 
 export interface NewBlockModalPropsType {
   open: boolean;

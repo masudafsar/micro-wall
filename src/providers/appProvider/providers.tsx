@@ -1,9 +1,9 @@
 'use client';
 
 import { type PropsWithChildren, useReducer } from 'react';
+import { appStateDefaultValue } from './constants';
 import { AppContext } from './contexts';
 import { appReducer } from './reducer';
-import { appStateDefaultValue } from './constants';
 
 export interface AppProviderPropsType {}
 

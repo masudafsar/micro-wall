@@ -1,6 +1,8 @@
 'use client';
 
-import { FormEvent, PropsWithChildren, useState } from 'react';
+import { type SvgIconComponent } from '@mui/icons-material';
+import DeleteTwoToneIcon from '@mui/icons-material/DeleteTwoTone';
+import ExpandMoreTwoToneIcon from '@mui/icons-material/ExpandMoreTwoTone';
 import {
   Accordion,
   AccordionDetails,
@@ -11,9 +13,7 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
-import ExpandMoreTwoToneIcon from '@mui/icons-material/ExpandMoreTwoTone';
-import DeleteTwoToneIcon from '@mui/icons-material/DeleteTwoTone';
-import { SvgIconComponent } from '@mui/icons-material';
+import { type FormEvent, type PropsWithChildren, useState } from 'react';
 import { AppActionEnum, useAppState } from '@formaloo/providers';
 
 export interface EditorBlockWrapperPropsType {

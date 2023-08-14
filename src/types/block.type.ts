@@ -17,7 +17,10 @@ export interface TextBlockType extends Omit<BaseBlockType, 'helpNote'> {
   content: string;
 }
 
-export interface ImageBlockType extends BaseBlockType {}
+export interface ImageBlockType extends BaseBlockType {
+  imageUrl: string;
+  isFullWidth: boolean;
+}
 
 export interface HtmlBlockType extends BaseBlockType {}
 

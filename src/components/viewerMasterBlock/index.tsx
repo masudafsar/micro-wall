@@ -11,7 +11,6 @@ export function ViewerMasterBlock({ block: { type, data } }: ViewerMasterBlockPr
   switch (type) {
     case BlockEnum.text:
       return <ViewerTextBlock data={data as TextBlockType} />;
-      break;
     case BlockEnum.image:
       break;
     case BlockEnum.html:

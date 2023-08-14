@@ -21,7 +21,7 @@ export const blocksInfo: { [key in keyof typeof BlockEnum]: BlockInfoType } = {
   image: {
     title: 'Image Block',
     icon: ImageTwoToneIcon,
-    isUnderDevelop: true,
+    isUnderDevelop: false,
   },
   html: {
     title: 'HTML Block',

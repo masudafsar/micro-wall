@@ -1,7 +1,8 @@
+import { EditorImageBlock } from '@formaloo/components/editorImageBlock';
 import { EditorTextBlock } from '@formaloo/components/editorTextBlock';
 import { BlockEnum } from '@formaloo/enums';
 import { type BlockType } from '@formaloo/types';
-import { type TextBlockType } from '@formaloo/types/block.type';
+import { ImageBlockType, type TextBlockType } from '@formaloo/types/block.type';
 
 export interface EditorMasterBlockPropsType {
   block: BlockType;
@@ -11,8 +12,8 @@ export function EditorMasterBlock({ block: { type, data } }: EditorMasterBlockPr
   switch (type) {
     case BlockEnum.text:
       return <EditorTextBlock data={data as TextBlockType} />;
-      break;
     case BlockEnum.image:
+      return <EditorImageBlock data={data as ImageBlockType} />;
       break;
     case BlockEnum.html:
       break;

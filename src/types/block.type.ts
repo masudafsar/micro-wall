@@ -17,11 +17,18 @@ export interface TextBlockType extends Omit<BaseBlockType, 'helpNote'> {
   content: string;
 }
 
-export interface ImageBlockType extends BaseBlockType {}
+export interface ImageBlockType extends BaseBlockType {
+  imageUrl: string;
+  height: number;
+  isCovered: boolean;
+}
 
 export interface HtmlBlockType extends BaseBlockType {}
 
-export interface TextInputBlockType extends BaseBlockType {}
+export interface TextInputBlockType extends BaseBlockType {
+  label?: string;
+  isRequired: boolean;
+}
 
 export interface MarkupInputBlockType extends BaseBlockType {}
 

@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { type TextBlockType } from '@formaloo/types/block.type';
 
 export interface ViewerTextBlockPropsType {
@@ -7,9 +7,13 @@ export interface ViewerTextBlockPropsType {
 
 export function ViewerTextBlock({ data }: ViewerTextBlockPropsType) {
   return (
-    <>
-      {data.title ? <Typography variant="h3">{data.title}</Typography> : undefined}
-      <Typography variant="body1">{data.content}</Typography>
-    </>
+    <Box>
+      <Typography component="h3" variant="h6">
+        {data.title}
+      </Typography>
+      <Typography component="p" variant="body1">
+        {data.content}
+      </Typography>
+    </Box>
   );
 }

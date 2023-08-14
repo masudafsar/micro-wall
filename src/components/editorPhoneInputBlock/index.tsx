@@ -57,19 +57,19 @@ export function EditorPhoneInputBlock({ data }: EditorPhoneInputBlockPropsType) 
       />
 
       <TextField
-        label="Help Note"
-        fullWidth
-        {...register('helpNote', {})}
-        error={Boolean(errors.helpNote)}
-        helperText={errors.helpNote && errors.helpNote.message}
-      />
-
-      <TextField
         label="Label"
         fullWidth
         {...register('label', {})}
         error={Boolean(errors.label)}
         helperText={errors.label && errors.label.message}
+      />
+
+      <TextField
+        label="Help Note"
+        fullWidth
+        {...register('helpNote', {})}
+        error={Boolean(errors.helpNote)}
+        helperText={errors.helpNote && errors.helpNote.message}
       />
 
       <FormControlLabel control={<Checkbox />} label="Required" {...register('isRequired')} />

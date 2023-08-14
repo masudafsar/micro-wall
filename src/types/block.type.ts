@@ -9,7 +9,7 @@ export interface BlockInfoType {
 
 export interface BaseBlockType {
   uuid: string;
-  title?: string;
+  title: string;
   helpNote?: string;
 }
 

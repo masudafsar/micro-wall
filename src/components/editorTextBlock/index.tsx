@@ -1,3 +1,5 @@
+'use client';
+
 import { TextBlockType } from '@formaloo/types/block.type';
 import { TextField } from '@mui/material';
 import { useForm } from 'react-hook-form';
@@ -6,11 +8,11 @@ import { BlockEnum } from '@formaloo/enums';
 import { blocksInfo } from '@formaloo/constants';
 import { EditorBlockWrapper } from '@formaloo/components/editorBlockWrapper';
 
-export interface TextBlockPropsType {
+export interface EditorTextBlockPropsType {
   data: TextBlockType;
 }
 
-export function TextBlock({ data }: TextBlockPropsType) {
+export function EditorTextBlock({ data }: EditorTextBlockPropsType) {
   const { icon: BlockIcon } = blocksInfo[BlockEnum.text];
   const [, appDispatch] = useAppState();
 

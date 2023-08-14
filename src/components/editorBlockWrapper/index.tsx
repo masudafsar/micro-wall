@@ -1,3 +1,6 @@
+'use client';
+
+import { FormEvent, PropsWithChildren, useState } from 'react';
 import {
   Accordion,
   AccordionDetails,
@@ -10,7 +13,6 @@ import {
 } from '@mui/material';
 import ExpandMoreTwoToneIcon from '@mui/icons-material/ExpandMoreTwoTone';
 import DeleteTwoToneIcon from '@mui/icons-material/DeleteTwoTone';
-import { FormEvent, PropsWithChildren, useState } from 'react';
 import { SvgIconComponent } from '@mui/icons-material';
 import { AppActionEnum, useAppState } from '@formaloo/providers';
 

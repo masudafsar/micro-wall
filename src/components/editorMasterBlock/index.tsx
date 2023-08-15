@@ -1,8 +1,10 @@
-import { EditorImageBlock } from '@formaloo/components/editorImageBlock';
-import { EditorPhoneInputBlock } from '@formaloo/components/editorPhoneInputBlock';
-import { EditorRangeInputBlock } from '@formaloo/components/editorRangeInputBlock';
-import { EditorTextBlock } from '@formaloo/components/editorTextBlock';
-import { EditorTextInputBlock } from '@formaloo/components/editorTextInputBlock';
+import {
+  EditorImageBlock,
+  EditorPhoneInputBlock,
+  EditorRangeInputBlock,
+  EditorTextBlock,
+  EditorTextInputBlock,
+} from '@formaloo/components';
 import { BlockEnum } from '@formaloo/enums';
 import { type BlockType } from '@formaloo/types';
 import {

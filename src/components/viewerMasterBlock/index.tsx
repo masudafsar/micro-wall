@@ -1,8 +1,10 @@
-import { ViewerTextBlock } from '@formaloo/components';
-import { ViewerImageBlock } from '@formaloo/components/viewerImageBlock';
-import { ViewerPhoneInputBlock } from '@formaloo/components/viewerPhoneInputBlock';
-import { ViewerRangeInputBlock } from '@formaloo/components/viewerRangeInputBlock';
-import { ViewerTextInputBlock } from '@formaloo/components/viewerTextInputBlock';
+import {
+  ViewerTextBlock,
+  ViewerImageBlock,
+  ViewerPhoneInputBlock,
+  ViewerRangeInputBlock,
+  ViewerTextInputBlock,
+} from '@formaloo/components';
 import { BlockEnum } from '@formaloo/enums';
 import { type BlockType } from '@formaloo/types';
 import {

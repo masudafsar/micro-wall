@@ -1,7 +1,8 @@
+'use client';
+
 import { Box, Button, Divider, Paper, Stack } from '@mui/material';
 import { FormProvider, useForm } from 'react-hook-form';
-import { ViewerMasterBlock } from '@formaloo/components';
-import { SubmittedDataModal } from '@formaloo/components/submittedDataModal';
+import { ViewerMasterBlock, SubmittedDataModal } from '@formaloo/components';
 import { AppActionEnum, useAppState } from '@formaloo/providers';
 
 export interface ViewerPropsType {}

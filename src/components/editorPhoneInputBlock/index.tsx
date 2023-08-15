@@ -20,6 +20,7 @@ export function EditorPhoneInputBlock({ data }: EditorPhoneInputBlockPropsType) 
 
   const {
     register,
+    watch,
     handleSubmit,
     formState: { errors },
   } = useForm<PhoneInputBlockType>({
@@ -74,12 +75,12 @@ export function EditorPhoneInputBlock({ data }: EditorPhoneInputBlockPropsType) 
 
       <FormControlLabel
         label="Required"
-        control={<Checkbox defaultChecked={data.isRequired} {...register('isRequired')} />}
+        control={<Checkbox defaultChecked={watch('isRequired')} {...register('isRequired')} />}
       />
 
       <FormControlLabel
         label="With Country Code"
-        control={<Checkbox defaultChecked={data.withCountryCode} {...register('withCountryCode')} />}
+        control={<Checkbox defaultChecked={watch('withCountryCode')} {...register('withCountryCode')} />}
       />
     </EditorBlockWrapper>
   );

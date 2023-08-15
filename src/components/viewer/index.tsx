@@ -1,16 +1,22 @@
 import { Box, Button, Divider, Paper, Stack } from '@mui/material';
 import { FormProvider, useForm } from 'react-hook-form';
 import { ViewerMasterBlock } from '@formaloo/components';
-import { useAppState } from '@formaloo/providers';
+import { SubmittedDataModal } from '@formaloo/components/submittedDataModal';
+import { AppActionEnum, useAppState } from '@formaloo/providers';
 
 export interface ViewerPropsType {}
 
 export function Viewer({}: ViewerPropsType) {
-  const [appState] = useAppState();
+  const [appState, appDispatch] = useAppState();
+
+  function handleDismissNewBlockModal() {
+    appDispatch({ type: AppActionEnum.closeSubmittedDataModal });
+  }
 
   const methods = useForm();
 
   function handleSubmit(data: unknown) {
+    appDispatch({ type: AppActionEnum.openSubmittedDataModal, payload: data });
     console.log('form_log', data);
   }
 
@@ -30,6 +36,8 @@ export function Viewer({}: ViewerPropsType) {
           </Stack>
         </Paper>
       </Box>
+
+      <SubmittedDataModal open={appState.isOpenSubmittedDataModal} onClose={handleDismissNewBlockModal} />
     </FormProvider>
   );
 }

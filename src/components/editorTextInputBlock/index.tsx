@@ -20,6 +20,7 @@ export function EditorTextInputBlock({ data }: EditorTextInputBlockPropsType) {
 
   const {
     register,
+    watch,
     handleSubmit,
     formState: { errors },
   } = useForm<TextInputBlockType>({
@@ -74,7 +75,7 @@ export function EditorTextInputBlock({ data }: EditorTextInputBlockPropsType) {
 
       <FormControlLabel
         label="Required"
-        control={<Checkbox defaultChecked={data.isRequired} {...register('isRequired')} />}
+        control={<Checkbox defaultChecked={watch('isRequired')} {...register('isRequired')} />}
       />
     </EditorBlockWrapper>
   );

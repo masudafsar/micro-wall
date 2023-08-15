@@ -13,12 +13,14 @@ export function SubmittedDataModal({ open, onClose }: SubmittedDataModalPropsTyp
     <Dialog open={open} onClose={onClose} fullScreen sx={{ zIndex: 2001 }}>
       <DialogTitle>Submitted Data</DialogTitle>
       <DialogContent>
-        <Typography component="pre" sx={{ fontFamily: 'monospace', backgroundColor: 'grey.200', p: 1 }}>
+        <Typography component="pre" variant="body2" sx={{ fontFamily: 'monospace', backgroundColor: 'grey.200', p: 1 }}>
           {JSON.stringify(appState.submittedData, null, 2)}
         </Typography>
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose}>Close</Button>
+        <Button variant="contained" color="error" onClick={onClose}>
+          Close
+        </Button>
       </DialogActions>
     </Dialog>
   );

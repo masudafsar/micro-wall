@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, TextField } from '@mui/material';
+import { Box, Checkbox, FormControlLabel, TextField } from '@mui/material';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { EditorBlockWrapper } from '@formaloo/components';
@@ -104,6 +104,11 @@ export function EditorRangeInputBlock({ data }: EditorRangeInputBlockPropsType) 
           helperText={errors.max && errors.max.message}
         />
       </Box>
+
+      <FormControlLabel
+        label="Is Range"
+        control={<Checkbox defaultChecked={watch('isRange')} {...register('isRange')} />}
+      />
     </EditorBlockWrapper>
   );
 }

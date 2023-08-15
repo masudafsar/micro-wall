@@ -45,6 +45,7 @@ export interface RangeInputBlockType extends BaseBlockType {
   label?: string;
   min: number;
   max: number;
+  isRange: boolean;
 }
 
 export interface dropdownInputBlockType extends BaseBlockType {

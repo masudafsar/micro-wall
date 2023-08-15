@@ -23,7 +23,9 @@ export function ViewerRangeInputBlock({ data }: ViewerRangeInputBlockPropsType) 
         <Controller
           control={control}
           name={fieldName}
-          defaultValue={[Number(data.min) || 0, Number(data.max) || 100]}
+          defaultValue={
+            data.isRange ? [Number(data.min) || 0, Number(data.max) || 100] : (Number(data.min) + Number(data.max)) / 2
+          }
           render={({ field }) => (
             <FormLabel>
               {data.label}

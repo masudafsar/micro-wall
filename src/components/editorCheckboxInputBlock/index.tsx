@@ -21,14 +21,14 @@ import { EditorBlockWrapper } from '@formaloo/components';
 import { blocksInfo } from '@formaloo/constants';
 import { BlockEnum } from '@formaloo/enums';
 import { AppActionEnum, useAppState } from '@formaloo/providers';
-import { type dropdownInputBlockType } from '@formaloo/types/block.type';
+import { type checkboxInputBlockType } from '@formaloo/types/block.type';
 
-export interface EditorDropdownInputBlockPropsType {
-  data: dropdownInputBlockType;
+export interface EditorCheckboxInputBlockPropsType {
+  data: checkboxInputBlockType;
 }
 
-export function EditorDropdownInputBlock({ data }: EditorDropdownInputBlockPropsType) {
-  const { icon: BlockIcon } = blocksInfo[BlockEnum.dropdownInput];
+export function EditorCheckboxInputBlock({ data }: EditorCheckboxInputBlockPropsType) {
+  const { icon: BlockIcon } = blocksInfo[BlockEnum.checkboxInput];
   const [, appDispatch] = useAppState();
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const [isOptionsExpanded, setIsOptionsExpanded] = useState<boolean>(false);
@@ -39,7 +39,7 @@ export function EditorDropdownInputBlock({ data }: EditorDropdownInputBlockProps
     watch,
     handleSubmit,
     formState: { errors },
-  } = useForm<dropdownInputBlockType>({
+  } = useForm<checkboxInputBlockType>({
     defaultValues: data,
   });
 
@@ -48,7 +48,7 @@ export function EditorDropdownInputBlock({ data }: EditorDropdownInputBlockProps
     name: 'options',
   });
 
-  function handleFormSubmit(data: dropdownInputBlockType) {
+  function handleFormSubmit(data: checkboxInputBlockType) {
     setIsExpanded(false);
     appDispatch({
       type: AppActionEnum.updateBlock,
@@ -155,6 +155,11 @@ export function EditorDropdownInputBlock({ data }: EditorDropdownInputBlockProps
       <FormControlLabel
         label="Required"
         control={<Checkbox defaultChecked={watch('isRequired')} {...register('isRequired')} />}
+      />
+
+      <FormControlLabel
+        label="Multiple"
+        control={<Checkbox defaultChecked={watch('isMulti')} {...register('isMulti')} />}
       />
     </EditorBlockWrapper>
   );

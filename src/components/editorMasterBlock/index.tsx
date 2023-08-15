@@ -5,10 +5,12 @@ import {
   EditorTextBlock,
   EditorTextInputBlock,
   EditorDropdownInputBlock,
+  EditorCheckboxInputBlock,
 } from '@formaloo/components';
 import { BlockEnum } from '@formaloo/enums';
 import { type BlockType } from '@formaloo/types';
 import {
+  checkboxInputBlockType,
   type dropdownInputBlockType,
   type ImageBlockType,
   type PhoneInputBlockType,
@@ -42,7 +44,7 @@ export function EditorMasterBlock({ block: { type, data } }: EditorMasterBlockPr
     case BlockEnum.dropdownInput:
       return <EditorDropdownInputBlock data={data as dropdownInputBlockType} />;
     case BlockEnum.checkboxInput:
-      break;
+      return <EditorCheckboxInputBlock data={data as checkboxInputBlockType} />;
     case BlockEnum.fileInput:
       break;
   }

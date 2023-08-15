@@ -13,6 +13,7 @@ export { EditorTextInputBlock, type EditorTextInputBlockPropsType } from './edit
 export { EditorPhoneInputBlock, type EditorPhoneInputBlockPropsType } from './editorPhoneInputBlock';
 export { EditorRangeInputBlock, type EditorRangeInputBlockPropsType } from './editorRangeInputBlock';
 export { EditorDropdownInputBlock, type EditorDropdownInputBlockPropsType } from './editorDropdownInputBlock';
+export { EditorCheckboxInputBlock, type EditorCheckboxInputBlockPropsType } from './editorCheckboxInputBlock';
 
 export { Viewer, type ViewerPropsType } from './viewer';
 export { ViewerMasterBlock, type ViewerMasterBlockPropsType } from './viewerMasterBlock';

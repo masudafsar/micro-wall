@@ -52,7 +52,12 @@ export interface dropdownInputBlockType extends BaseBlockType {
   options: Array<string>;
 }
 
-export interface checkboxInputBlockType extends BaseBlockType {}
+export interface checkboxInputBlockType extends BaseBlockType {
+  label?: string;
+  isRequired: boolean;
+  isMulti: boolean;
+  options: Array<string>;
+}
 
 export interface fileInputBlockType extends BaseBlockType {}
 

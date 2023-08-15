@@ -46,7 +46,11 @@ export interface RangeInputBlockType extends BaseBlockType {
   max: number;
 }
 
-export interface dropdownInputBlockType extends BaseBlockType {}
+export interface dropdownInputBlockType extends BaseBlockType {
+  label?: string;
+  isRequired: boolean;
+  options: Array<string>;
+}
 
 export interface checkboxInputBlockType extends BaseBlockType {}
 

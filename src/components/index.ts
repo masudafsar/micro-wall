@@ -12,6 +12,7 @@ export { EditorImageBlock, type EditorImageBlockPropsType } from './editorImageB
 export { EditorTextInputBlock, type EditorTextInputBlockPropsType } from './editorTextInputBlock';
 export { EditorPhoneInputBlock, type EditorPhoneInputBlockPropsType } from './editorPhoneInputBlock';
 export { EditorRangeInputBlock, type EditorRangeInputBlockPropsType } from './editorRangeInputBlock';
+export { EditorDropdownInputBlock, type EditorDropdownInputBlockPropsType } from './editorDropdownInputBlock';
 
 export { Viewer, type ViewerPropsType } from './viewer';
 export { ViewerMasterBlock, type ViewerMasterBlockPropsType } from './viewerMasterBlock';

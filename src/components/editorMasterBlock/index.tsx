@@ -4,10 +4,12 @@ import {
   EditorRangeInputBlock,
   EditorTextBlock,
   EditorTextInputBlock,
+  EditorDropdownInputBlock,
 } from '@formaloo/components';
 import { BlockEnum } from '@formaloo/enums';
 import { type BlockType } from '@formaloo/types';
 import {
+  type dropdownInputBlockType,
   type ImageBlockType,
   type PhoneInputBlockType,
   type RangeInputBlockType,
@@ -38,7 +40,7 @@ export function EditorMasterBlock({ block: { type, data } }: EditorMasterBlockPr
     case BlockEnum.rangeInput:
       return <EditorRangeInputBlock data={data as RangeInputBlockType} />;
     case BlockEnum.dropdownInput:
-      break;
+      return <EditorDropdownInputBlock data={data as dropdownInputBlockType} />;
     case BlockEnum.checkboxInput:
       break;
     case BlockEnum.fileInput:

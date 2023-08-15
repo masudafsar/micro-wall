@@ -56,7 +56,7 @@ export const blocksInfo: { [key in keyof typeof BlockEnum]: BlockInfoType } = {
   dropdownInput: {
     title: 'Dropdown Input Block',
     icon: ListTwoToneIcon,
-    isUnderDevelop: true,
+    isUnderDevelop: false,
   },
   checkboxInput: {
     title: 'Checkbox Input Block',

@@ -8,7 +8,9 @@ export type AppActionType =
   | { type: AppActionEnum.closeNewBlockModal }
   | { type: AppActionEnum.addNewBlock; payload: BlockType }
   | { type: AppActionEnum.updateBlock; payload: BlockType }
-  | { type: AppActionEnum.removeBlock; uuid: string };
+  | { type: AppActionEnum.removeBlock; uuid: string }
+  | { type: AppActionEnum.moveUpBlock; uuid: string }
+  | { type: AppActionEnum.moveDownBlock; uuid: string };
 
 export type AppDispatchType = (value: AppActionType) => void;
 

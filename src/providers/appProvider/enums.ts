@@ -11,4 +11,6 @@ export enum AppActionEnum {
   addNewBlock = 'ADD_NEW_BLOCK',
   updateBlock = 'UPDATE_BLOCK',
   removeBlock = 'REMOVE_BLOCK',
+  moveUpBlock = 'MOVE_UP_BLOCK',
+  moveDownBlock = 'MOVE_DOWN_BLOCK',
 }

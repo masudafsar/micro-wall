@@ -18,12 +18,14 @@ export function Editor({}: EditorPropsType) {
 
   return (
     <Box>
-      <Stack>
-        {appState.blocks.map((block) => (
-          <EditorMasterBlock key={block.data.uuid} block={block} />
-        ))}
+      <Stack spacing={2}>
+        <Stack>
+          {appState.blocks.map((block) => (
+            <EditorMasterBlock key={block.data.uuid} block={block} />
+          ))}
+        </Stack>
 
-        {appState.blocks.length !== 0 ? <Divider sx={{ my: 2 }} /> : undefined}
+        {appState.blocks.length !== 0 ? <Divider /> : undefined}
 
         <EditorAddBlock />
       </Stack>

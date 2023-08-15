@@ -1,6 +1,8 @@
 'use client';
 
 import { type SvgIconComponent } from '@mui/icons-material';
+import ArrowDropDownTwoToneIcon from '@mui/icons-material/ArrowDropDownTwoTone';
+import ArrowDropUpTwoToneIcon from '@mui/icons-material/ArrowDropUpTwoTone';
 import DeleteTwoToneIcon from '@mui/icons-material/DeleteTwoTone';
 import ExpandMoreTwoToneIcon from '@mui/icons-material/ExpandMoreTwoTone';
 import {
@@ -36,9 +38,26 @@ export function EditorBlockWrapper({
 }: PropsWithChildren<EditorBlockWrapperPropsType>) {
   const [, appDispatch] = useAppState();
 
-  function handleRemoveBlock() {
+  function handleRemoveBlock(event: MouseEvent) {
+    event.stopPropagation();
     appDispatch({
       type: AppActionEnum.removeBlock,
+      uuid: id,
+    });
+  }
+
+  function handleMoveUpBlock(event: MouseEvent) {
+    event.stopPropagation();
+    appDispatch({
+      type: AppActionEnum.moveUpBlock,
+      uuid: id,
+    });
+  }
+
+  function handleMoveDownBlock(event: MouseEvent) {
+    event.stopPropagation();
+    appDispatch({
+      type: AppActionEnum.moveDownBlock,
       uuid: id,
     });
   }
@@ -48,6 +67,26 @@ export function EditorBlockWrapper({
       expanded={isExpanded}
       onChange={(event, expanded) => {
         onExpandedChange(expanded);
+      }}
+      sx={{
+        '&:first-child': {
+          '.move-up': {
+            display: 'block',
+            height: 0,
+            py: 0,
+            overflow: 'hidden',
+            opacity: 0,
+          },
+        },
+        '&:last-child': {
+          '.move-down': {
+            display: 'block',
+            height: 0,
+            py: 0,
+            overflow: 'hidden',
+            opacity: 0,
+          },
+        },
       }}
     >
       <AccordionSummary
@@ -59,6 +98,18 @@ export function EditorBlockWrapper({
           {Icon ? <Icon /> : undefined}
 
           <Typography sx={{ flex: '1', color: 'text.secondary' }}>{title}</Typography>
+
+          {!isExpanded ? (
+            <>
+              <IconButton className="move-up" onClick={handleMoveUpBlock}>
+                <ArrowDropUpTwoToneIcon />
+              </IconButton>
+
+              <IconButton className="move-down" onClick={handleMoveDownBlock}>
+                <ArrowDropDownTwoToneIcon />
+              </IconButton>
+            </>
+          ) : undefined}
 
           <IconButton onClick={handleRemoveBlock}>
             <DeleteTwoToneIcon />

@@ -18,6 +18,10 @@ export function appReducer(prev: AppStateType, action: AppActionType): AppStateT
       return updateBlock(prev, action.payload);
     case AppActionEnum.removeBlock:
       return removeBlock(prev, action.uuid);
+    case AppActionEnum.moveUpBlock:
+      return moveUpBlock(prev, action.uuid);
+    case AppActionEnum.moveDownBlock:
+      return moveDownBlock(prev, action.uuid);
   }
   return next;
 }
@@ -64,5 +68,27 @@ function removeBlock(prev: AppStateType, uuid: string): AppStateType {
   const next = { ...prev };
   const blockIndex = next.blocks.findIndex((block) => block.data.uuid === uuid);
   if (blockIndex !== -1) next.blocks.splice(blockIndex, 1);
+  return next;
+}
+
+function moveUpBlock(prev: AppStateType, uuid: string): AppStateType {
+  const next = { ...prev };
+  const blockIndex = next.blocks.findIndex((block) => block.data.uuid === uuid);
+  if (blockIndex !== -1 && blockIndex !== 0) {
+    const block = next.blocks[blockIndex];
+    next.blocks[blockIndex] = next.blocks[blockIndex - 1];
+    next.blocks[blockIndex - 1] = block;
+  }
+  return next;
+}
+
+function moveDownBlock(prev: AppStateType, uuid: string): AppStateType {
+  const next = { ...prev };
+  const blockIndex = next.blocks.findIndex((block) => block.data.uuid === uuid);
+  if (blockIndex !== -1 && blockIndex !== next.blocks.length - 1) {
+    const block = next.blocks[blockIndex];
+    next.blocks[blockIndex] = next.blocks[blockIndex + 1];
+    next.blocks[blockIndex + 1] = block;
+  }
   return next;
 }

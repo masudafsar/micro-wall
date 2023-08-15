@@ -1,7 +1,6 @@
 'use client';
 
-import { Editor } from '@formaloo/components/editor';
-import { Viewer } from '@formaloo/components/viewer';
+import { Editor, Viewer } from '@formaloo/components';
 import { AppModeEnum, useAppState } from '@formaloo/providers';
 
 export default function Home() {

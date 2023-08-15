@@ -5,6 +5,7 @@ export interface BlockInfoType {
   title: string;
   icon?: SvgIconComponent;
   isUnderDevelop: boolean;
+  type: BlockEnum;
 }
 
 export interface BaseBlockType {
@@ -40,11 +41,25 @@ export interface PhoneInputBlockType extends BaseBlockType {
   withCountryCode: boolean;
 }
 
-export interface RangeInputBlockType extends BaseBlockType {}
+export interface RangeInputBlockType extends BaseBlockType {
+  label?: string;
+  min: number;
+  max: number;
+  isRange: boolean;
+}
 
-export interface dropdownInputBlockType extends BaseBlockType {}
+export interface dropdownInputBlockType extends BaseBlockType {
+  label?: string;
+  isRequired: boolean;
+  options: Array<{ value: string }>;
+}
 
-export interface checkboxInputBlockType extends BaseBlockType {}
+export interface checkboxInputBlockType extends BaseBlockType {
+  label?: string;
+  isRequired: boolean;
+  isMulti: boolean;
+  options: Array<{ value: string }>;
+}
 
 export interface fileInputBlockType extends BaseBlockType {}
 

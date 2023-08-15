@@ -87,9 +87,9 @@ export function EditorImageBlock({ data }: EditorImageBlockPropsType) {
       />
 
       <Typography variant="body2">
-        Use unsplash random image as example
+        Use unsplash random image with a random number as example
         <br />
-        https://source.unsplash.com/random
+        https://source.unsplash.com/random?[random-number]
       </Typography>
     </EditorBlockWrapper>
   );

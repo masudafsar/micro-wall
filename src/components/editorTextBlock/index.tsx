@@ -20,6 +20,7 @@ export function EditorTextBlock({ data }: EditorTextBlockPropsType) {
 
   const {
     register,
+    watch,
     handleSubmit,
     formState: { errors },
   } = useForm<TextBlockType>({
@@ -49,6 +50,7 @@ export function EditorTextBlock({ data }: EditorTextBlockPropsType) {
       <TextField
         label="Title"
         fullWidth
+        rows={watch('title').split('\n').length + 1}
         {...register('title', {
           required: 'Title field is required.',
         })}
@@ -59,6 +61,7 @@ export function EditorTextBlock({ data }: EditorTextBlockPropsType) {
       <TextField
         label="Content"
         fullWidth
+        multiline
         {...register('content', {
           required: 'Content field is required.',
         })}

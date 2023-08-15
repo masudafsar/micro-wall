@@ -11,13 +11,15 @@ export interface BlockListPropsType {
 export function BlockList({ onItemClick }: BlockListPropsType) {
   return (
     <Grid container spacing={1}>
-      {Object.keys(blocksInfo).map((blockTitle) => {
-        const blockType = BlockEnum[blockTitle as keyof typeof BlockEnum] as BlockEnum;
-        const info: BlockInfoType = blocksInfo[blockType];
-        if (!info) return <></>;
-
-        return <BlockItem key={blockType} type={blockType} info={info} onItemClick={onItemClick} />;
-      })}
+      {Object.keys(blocksInfo)
+        .map((blockTitle) => {
+          const blockType = BlockEnum[blockTitle as keyof typeof BlockEnum] as BlockEnum;
+          const info: BlockInfoType = blocksInfo[blockType];
+          return info;
+        })
+        .map((info) => (
+          <BlockItem key={info.type} info={info} onItemClick={onItemClick} />
+        ))}
     </Grid>
   );
 }

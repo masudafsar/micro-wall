@@ -13,7 +13,7 @@ export function appReducer(prev: AppStateType, action: AppActionType): AppStateT
     case AppActionEnum.closeNewBlockModal:
       return closeNewBlockModal(prev);
     case AppActionEnum.openSubmittedDataModal:
-      return openSubmittedDataModal(prev, action.payload);
+      return openSubmittedDataModal(prev, action.unknownPayload);
     case AppActionEnum.closeSubmittedDataModal:
       return closeSubmittedDataModal(prev);
     case AppActionEnum.addNewBlock:

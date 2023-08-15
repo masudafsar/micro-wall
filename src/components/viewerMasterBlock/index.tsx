@@ -3,12 +3,14 @@ import {
   ViewerImageBlock,
   ViewerPhoneInputBlock,
   ViewerRangeInputBlock,
-  ViewerDropdownInputBlock,
+  ViewerCheckboxInputBlock,
   ViewerTextInputBlock,
+  ViewerDropdownInputBlock,
 } from '@formaloo/components';
 import { BlockEnum } from '@formaloo/enums';
 import { type BlockType } from '@formaloo/types';
 import {
+  checkboxInputBlockType,
   type dropdownInputBlockType,
   type ImageBlockType,
   type PhoneInputBlockType,
@@ -42,7 +44,7 @@ export function ViewerMasterBlock({ block: { type, data } }: ViewerMasterBlockPr
     case BlockEnum.dropdownInput:
       return <ViewerDropdownInputBlock data={data as dropdownInputBlockType} />;
     case BlockEnum.checkboxInput:
-      break;
+      return <ViewerCheckboxInputBlock data={data as checkboxInputBlockType} />;
     case BlockEnum.fileInput:
       break;
   }

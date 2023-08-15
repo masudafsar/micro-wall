@@ -23,3 +23,4 @@ export { ViewerTextInputBlock, type ViewerTextInputBlockPropsType } from './view
 export { ViewerPhoneInputBlock, type ViewerPhoneInputBlockPropsType } from './viewerPhoneInputBlock';
 export { ViewerRangeInputBlock, type ViewerRangeInputBlockPropsType } from './viewerRangeInputBlock';
 export { ViewerDropdownInputBlock, type ViewerDropdownInputBlockPropsType } from './viewerDropdownInputBlock';
+export { ViewerCheckboxInputBlock, type ViewerCheckboxInputBlockPropsType } from './viewerCheckboxInputBlock';

@@ -53,7 +53,7 @@ export function EditorCheckboxInputBlock({ data }: EditorCheckboxInputBlockProps
     appDispatch({
       type: AppActionEnum.updateBlock,
       payload: {
-        type: BlockEnum.dropdownInput,
+        type: BlockEnum.checkboxInput,
         data: data,
       },
     });

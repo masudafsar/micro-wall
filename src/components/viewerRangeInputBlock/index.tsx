@@ -23,14 +23,14 @@ export function ViewerRangeInputBlock({ data }: ViewerRangeInputBlockPropsType) 
         <Controller
           control={control}
           name={fieldName}
-          defaultValue={[Number(data.min), Number(data.max)]}
+          defaultValue={[Number(data.min) || 0, Number(data.max) || 100]}
           render={({ field }) => (
             <FormLabel>
               {data.label}
               <Slider
                 {...field}
-                min={Number(data.min)}
-                max={Number(data.max)}
+                min={Number(data.min) || 0}
+                max={Number(data.max) || 100}
                 valueLabelDisplay="auto"
                 onChange={(_, value) => {
                   field.onChange(value);

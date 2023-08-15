@@ -15,7 +15,7 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
-import { type FormEvent, type PropsWithChildren } from 'react';
+import { type FormEvent, type MouseEvent, type PropsWithChildren } from 'react';
 import { AppActionEnum, useAppState } from '@formaloo/providers';
 
 export interface EditorBlockWrapperPropsType {
@@ -38,7 +38,7 @@ export function EditorBlockWrapper({
 }: PropsWithChildren<EditorBlockWrapperPropsType>) {
   const [, appDispatch] = useAppState();
 
-  function handleRemoveBlock(event: MouseEvent) {
+  function handleRemoveBlock(event: MouseEvent<HTMLAnchorElement> | MouseEvent<HTMLButtonElement>) {
     event.stopPropagation();
     appDispatch({
       type: AppActionEnum.removeBlock,
@@ -46,7 +46,7 @@ export function EditorBlockWrapper({
     });
   }
 
-  function handleMoveUpBlock(event: MouseEvent) {
+  function handleMoveUpBlock(event: MouseEvent<HTMLAnchorElement> | MouseEvent<HTMLButtonElement>) {
     event.stopPropagation();
     appDispatch({
       type: AppActionEnum.moveUpBlock,
@@ -54,7 +54,7 @@ export function EditorBlockWrapper({
     });
   }
 
-  function handleMoveDownBlock(event: MouseEvent) {
+  function handleMoveDownBlock(event: MouseEvent<HTMLAnchorElement> | MouseEvent<HTMLButtonElement>) {
     event.stopPropagation();
     appDispatch({
       type: AppActionEnum.moveDownBlock,

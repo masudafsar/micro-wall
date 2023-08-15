@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Checkbox, FormControlLabel, TextField } from '@mui/material';
+import { Box, TextField } from '@mui/material';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { EditorBlockWrapper } from '@formaloo/components';

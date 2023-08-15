@@ -16,8 +16,7 @@ export function Viewer({}: ViewerPropsType) {
   const methods = useForm();
 
   function handleSubmit(data: unknown) {
-    appDispatch({ type: AppActionEnum.openSubmittedDataModal, payload: data });
-    console.log('form_log', data);
+    appDispatch({ type: AppActionEnum.openSubmittedDataModal, unknownPayload: data });
   }
 
   return (

@@ -8,6 +8,9 @@ import { robotoFont } from '@formaloo/themes/robotoFont';
 export const metadata: Metadata = {
   title: 'MicroWall',
   description: 'MicroWall powered by Formaloo',
+  icons: {
+    shortcut: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {

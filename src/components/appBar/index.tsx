@@ -27,7 +27,13 @@ export function AppBar({}: AppBarPropsType) {
             MicroWall {appState.mode === AppModeEnum.edit ? <small>(Edit Mode)</small> : undefined}
           </Typography>
           {appState.mode === AppModeEnum.edit ? (
-            <Button color="success" variant="contained" endIcon={<PlayArrowTwoToneIcon />} onClick={handlePreviewClick}>
+            <Button
+              color="success"
+              variant="contained"
+              endIcon={<PlayArrowTwoToneIcon />}
+              onClick={handlePreviewClick}
+              disabled={appState.blocks.length === 0}
+            >
               Preview
             </Button>
           ) : undefined}

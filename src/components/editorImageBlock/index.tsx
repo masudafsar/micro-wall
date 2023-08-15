@@ -20,6 +20,7 @@ export function EditorImageBlock({ data }: EditorImageBlockPropsType) {
 
   const {
     register,
+    watch,
     handleSubmit,
     formState: { errors },
   } = useForm<ImageBlockType>({
@@ -82,7 +83,7 @@ export function EditorImageBlock({ data }: EditorImageBlockPropsType) {
 
       <FormControlLabel
         label="Covered"
-        control={<Checkbox defaultChecked={data.isCovered} {...register('isCovered')} />}
+        control={<Checkbox defaultChecked={watch('isCovered')} {...register('isCovered')} />}
       />
 
       <Typography variant="body2">

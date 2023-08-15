@@ -24,16 +24,16 @@ export function ViewerCheckboxInputBlock({ data }: ViewerCheckboxInputBlockProps
   const { watch, setValue } = useFormContext();
 
   function handleCheckboxChange(index: number, checked: boolean) {
-    let checkedOptions: Array<{ value: string }> = watch(fieldName);
+    let checkedOptions: Array<string> = watch(fieldName);
     if (checkedOptions === undefined) checkedOptions = [];
     if (!data.isMulti) {
-      checkedOptions = [data.options[index]];
+      checkedOptions = [data.options[index].value];
     } else {
       if (checked) {
-        const itemIndex = checkedOptions.findIndex((item) => item && item?.value === data.options[index]?.value);
-        if (itemIndex === -1) checkedOptions.push(data.options[index]);
+        const itemIndex = checkedOptions.findIndex((item) => item === data.options[index]?.value);
+        if (itemIndex === -1) checkedOptions.push(data.options[index].value);
       } else {
-        const itemIndex = checkedOptions.findIndex((item) => item && item?.value === data.options[index]?.value);
+        const itemIndex = checkedOptions.findIndex((item) => item === data.options[index]?.value);
         if (itemIndex !== -1) checkedOptions.splice(itemIndex, 1);
       }
     }

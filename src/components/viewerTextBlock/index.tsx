@@ -14,7 +14,12 @@ export function ViewerTextBlock({ data }: ViewerTextBlockPropsType) {
         </Typography>
 
         <Typography component="p" variant="body1">
-          {data.content}
+          {data.content.split('\n').map((line, index) => (
+            <>
+              {index !== 0 ? <br /> : undefined}
+              <span key={index}>{line}</span>
+            </>
+          ))}
         </Typography>
       </Stack>
     </Box>

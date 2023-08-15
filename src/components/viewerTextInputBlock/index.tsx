@@ -33,7 +33,7 @@ export function ViewerTextInputBlock({ data }: ViewerTextInputBlockPropsType) {
               : {}),
           })}
           error={Boolean(errors[fieldName])}
-          helperText={errors[fieldName] && errors[fieldName].message}
+          helperText={`${errors[fieldName]?.message || ''}`}
         />
 
         {data.helpNote ? (

@@ -5,6 +5,7 @@ import {
   Checkbox,
   FormControl,
   FormControlLabel,
+  FormHelperText,
   FormLabel,
   Radio,
   RadioGroup,
@@ -21,7 +22,23 @@ export interface ViewerCheckboxInputBlockPropsType {
 
 export function ViewerCheckboxInputBlock({ data }: ViewerCheckboxInputBlockPropsType) {
   const fieldName = `${BlockEnum.checkboxInput}-${data.uuid}`;
-  const { watch, setValue } = useFormContext();
+  const {
+    watch,
+    setValue,
+    register,
+    formState: { errors },
+  } = useFormContext();
+  const {} = register(fieldName, {
+    ...(data.isRequired
+      ? {
+          required: `${data.label} field is required.`,
+          minLength: {
+            value: 1,
+            message: `${data.label} field is required.`,
+          },
+        }
+      : {}),
+  });
 
   function handleCheckboxChange(index: number, checked: boolean) {
     let checkedOptions: Array<string> = watch(fieldName);
@@ -51,7 +68,7 @@ export function ViewerCheckboxInputBlock({ data }: ViewerCheckboxInputBlockProps
           <FormControl>
             <FormLabel id={`${fieldName}-group-label`}>{data.label}</FormLabel>
             <RadioGroup aria-labelledby={`${fieldName}-group-label`} name={fieldName}>
-              {data.options.map((option, index) => (
+              {data.options?.map((option, index) => (
                 <Box key={index}>
                   <FormControlLabel
                     label={option.value}
@@ -77,6 +94,9 @@ export function ViewerCheckboxInputBlock({ data }: ViewerCheckboxInputBlockProps
                 </Box>
               ))}
             </RadioGroup>
+            {Boolean(errors[fieldName]) ? (
+              <FormHelperText sx={{ color: 'error.main' }}>{`${errors[fieldName]?.message || ''}`}</FormHelperText>
+            ) : undefined}
           </FormControl>
         </Stack>
 

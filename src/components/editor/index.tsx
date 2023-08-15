@@ -29,6 +29,7 @@ export function Editor({}: EditorPropsType) {
 
         <EditorAddBlock />
       </Stack>
+
       <NewBlockModal open={appState.isOpenNewBlockModal} onClose={handleDismissNewBlockModal} />
 
       <Fab color="primary" sx={{ position: 'fixed', bottom: '1rem', right: '1rem' }} onClick={handleAddNewBlockClick}>

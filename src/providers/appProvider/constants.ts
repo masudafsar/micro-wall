@@ -4,6 +4,7 @@ export const appStateDefaultValue: AppStateType = {
   mode: AppModeEnum.edit,
   blocks: [],
   isOpenNewBlockModal: false,
+  isOpenSubmittedDataModal: false,
 };
 export const appContextDefaultValue: AppContextType = {
   state: appStateDefaultValue,

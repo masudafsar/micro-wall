@@ -12,6 +12,10 @@ export function appReducer(prev: AppStateType, action: AppActionType): AppStateT
       return openNewBlockModal(prev);
     case AppActionEnum.closeNewBlockModal:
       return closeNewBlockModal(prev);
+    case AppActionEnum.openSubmittedDataModal:
+      return openSubmittedDataModal(prev, action.payload);
+    case AppActionEnum.closeSubmittedDataModal:
+      return closeSubmittedDataModal(prev);
     case AppActionEnum.addNewBlock:
       return addNewBlock(prev, action.payload);
     case AppActionEnum.updateBlock:
@@ -47,6 +51,19 @@ function openNewBlockModal(prev: AppStateType): AppStateType {
 function closeNewBlockModal(prev: AppStateType): AppStateType {
   const next = { ...prev };
   next.isOpenNewBlockModal = false;
+  return next;
+}
+
+function openSubmittedDataModal(prev: AppStateType, payload?: unknown): AppStateType {
+  const next = { ...prev };
+  next.isOpenSubmittedDataModal = true;
+  next.submittedData = payload;
+  return next;
+}
+
+function closeSubmittedDataModal(prev: AppStateType): AppStateType {
+  const next = { ...prev };
+  next.isOpenSubmittedDataModal = false;
   return next;
 }
 

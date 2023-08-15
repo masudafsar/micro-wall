@@ -33,7 +33,7 @@ export function ViewerPhoneInputBlock({ data }: ViewerPhoneInputBlockPropsType) 
               : {}),
           })}
           error={Boolean(errors[fieldName])}
-          helperText={errors[fieldName] && errors[fieldName].message}
+          helperText={`${errors[fieldName]?.message || ''}`}
         />
 
         {data.helpNote ? (

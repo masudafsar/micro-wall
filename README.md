@@ -29,3 +29,19 @@ npm run start
 
 The production web server runs on port 3000, so you can see it in [localhost:3000](http://localhost:3000/).
 
+### Supported Blocks
+
+| Name           | Type         | Status        |
+| -------------- | ------------ | ------------- |
+| Text           | presentation | completed     |
+| Image          | presentation | completed     |
+| Html           | presentation | under develop |
+| Text Input     | input        | completed     |
+| Markup Input   | input        | under develop |
+| Calendar Input | input        | under develop |
+| Phone Input    | input        | completed     |
+| Range Input    | input        | completed     |
+| Dropdown Input | input        | completed     |
+| Checkbox Input | input        | completed     |
+| File Input     | input        | under develop |
+

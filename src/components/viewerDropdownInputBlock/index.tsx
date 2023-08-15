@@ -39,8 +39,8 @@ export function ViewerDropdownInputBlock({ data }: ViewerDropdownInputBlockProps
             error={Boolean(errors[fieldName])}
           >
             {data.options.map((option, index) => (
-              <MenuItem key={index} value={option}>
-                {option}
+              <MenuItem key={index} value={option.value}>
+                {option.value}
               </MenuItem>
             ))}
           </Select>

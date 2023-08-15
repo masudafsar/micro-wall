@@ -24,16 +24,16 @@ export function ViewerCheckboxInputBlock({ data }: ViewerCheckboxInputBlockProps
   const { watch, setValue } = useFormContext();
 
   function handleCheckboxChange(index: number, checked: boolean) {
-    let checkedOptions = watch(fieldName);
+    let checkedOptions: Array<{ value: string }> = watch(fieldName);
     if (checkedOptions === undefined) checkedOptions = [];
     if (!data.isMulti) {
       checkedOptions = [data.options[index]];
     } else {
       if (checked) {
-        const itemIndex = checkedOptions.findIndex((item) => item === data.options[index]);
+        const itemIndex = checkedOptions.findIndex((item) => item && item?.value === data.options[index]?.value);
         if (itemIndex === -1) checkedOptions.push(data.options[index]);
       } else {
-        const itemIndex = checkedOptions.findIndex((item) => item === data.options[index]);
+        const itemIndex = checkedOptions.findIndex((item) => item && item?.value === data.options[index]?.value);
         if (itemIndex !== -1) checkedOptions.splice(itemIndex, 1);
       }
     }
@@ -54,19 +54,18 @@ export function ViewerCheckboxInputBlock({ data }: ViewerCheckboxInputBlockProps
               {data.options.map((option, index) => (
                 <Box key={index}>
                   <FormControlLabel
-                    label={option}
+                    label={option.value}
                     control={
                       data.isMulti ? (
                         <Checkbox
-                          // checked={watch(fieldName)?.findIndex((item) => item === option) !== -1}
-                          value={option}
+                          value={option.value}
                           onChange={(event, checked) => {
                             handleCheckboxChange(index, checked);
                           }}
                         />
                       ) : (
                         <Radio
-                          value={option}
+                          value={option.value}
                           onChange={(event, checked) => {
                             console.log('_log', event, checked);
                             handleCheckboxChange(index, checked);

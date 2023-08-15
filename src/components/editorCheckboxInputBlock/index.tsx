@@ -122,11 +122,11 @@ export function EditorCheckboxInputBlock({ data }: EditorCheckboxInputBlockProps
                   <TextField
                     label="Option Title"
                     fullWidth
-                    {...register(`options.${index}`, {
+                    {...register(`options.${index}.value`, {
                       required: 'Option Title field is required.',
                     })}
-                    error={Boolean(errors.options?.[index])}
-                    helperText={errors.options?.[index] && errors.options?.[index]?.message}
+                    error={Boolean(errors.options?.[index]?.value)}
+                    helperText={errors.options?.[index]?.value && errors.options?.[index]?.value?.message}
                   />
                   <IconButton
                     onClick={() => {
@@ -143,7 +143,7 @@ export function EditorCheckboxInputBlock({ data }: EditorCheckboxInputBlockProps
               variant="text"
               color="primary"
               onClick={() => {
-                append('');
+                append({ value: '' });
               }}
             >
               Add Option

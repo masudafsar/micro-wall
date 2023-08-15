@@ -6,7 +6,7 @@ export type AppActionType =
   | { type: AppActionEnum.goToViewMode }
   | { type: AppActionEnum.openNewBlockModal }
   | { type: AppActionEnum.closeNewBlockModal }
-  | { type: AppActionEnum.openSubmittedDataModal; payload?: unknown }
+  | { type: AppActionEnum.openSubmittedDataModal; unknownPayload?: unknown }
   | { type: AppActionEnum.closeSubmittedDataModal }
   | { type: AppActionEnum.addNewBlock; payload: BlockType }
   | { type: AppActionEnum.updateBlock; payload: BlockType }

@@ -125,11 +125,11 @@ export function EditorDropdownInputBlock({ data }: EditorDropdownInputBlockProps
                   <TextField
                     label="Option Title"
                     fullWidth
-                    {...register(`options.${index}.value`, {
+                    {...register(`options.${index}`, {
                       required: 'Option Title field is required.',
                     })}
-                    error={Boolean(errors.options?.[index]?.value)}
-                    helperText={errors.options?.[index]?.value && errors.options?.[index]?.value?.message}
+                    error={Boolean(errors.options?.[index])}
+                    helperText={errors.options?.[index] && errors.options?.[index]?.message}
                   />
                   <IconButton
                     onClick={() => {

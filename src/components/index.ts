@@ -21,3 +21,4 @@ export { ViewerImageBlock, type ViewerImageBlockPropsType } from './viewerImageB
 export { ViewerTextInputBlock, type ViewerTextInputBlockPropsType } from './viewerTextInputBlock';
 export { ViewerPhoneInputBlock, type ViewerPhoneInputBlockPropsType } from './viewerPhoneInputBlock';
 export { ViewerRangeInputBlock, type ViewerRangeInputBlockPropsType } from './viewerRangeInputBlock';
+export { ViewerDropdownInputBlock, type ViewerDropdownInputBlockPropsType } from './viewerDropdownInputBlock';

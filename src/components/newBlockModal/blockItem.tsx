@@ -3,12 +3,11 @@ import { BlockEnum } from '@formaloo/enums';
 import { type BlockInfoType } from '@formaloo/types/block.type';
 
 export interface BlockItemPropsType {
-  type: BlockEnum;
   info: BlockInfoType;
   onItemClick?: (type: BlockEnum) => void;
 }
 
-export function BlockItem({ type, onItemClick, info: { title, icon: Icon, isUnderDevelop } }: BlockItemPropsType) {
+export function BlockItem({ onItemClick, info: { title, icon: Icon, isUnderDevelop, type } }: BlockItemPropsType) {
   function handleClick() {
     onItemClick?.(type);
   }

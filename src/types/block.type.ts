@@ -5,6 +5,7 @@ export interface BlockInfoType {
   title: string;
   icon?: SvgIconComponent;
   isUnderDevelop: boolean;
+  type: BlockEnum;
 }
 
 export interface BaseBlockType {

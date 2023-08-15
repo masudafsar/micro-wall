@@ -40,7 +40,11 @@ export interface PhoneInputBlockType extends BaseBlockType {
   withCountryCode: boolean;
 }
 
-export interface RangeInputBlockType extends BaseBlockType {}
+export interface RangeInputBlockType extends BaseBlockType {
+  label?: string;
+  min: number;
+  max: number;
+}
 
 export interface dropdownInputBlockType extends BaseBlockType {}
 

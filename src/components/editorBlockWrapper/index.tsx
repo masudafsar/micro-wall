@@ -119,7 +119,7 @@ export function EditorBlockWrapper({
 
       <AccordionDetails>
         <Box component="form" onSubmit={onSubmit}>
-          <Stack spacing={1}>
+          <Stack spacing={2}>
             {children}
 
             <Box>

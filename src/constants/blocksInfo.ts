@@ -51,7 +51,7 @@ export const blocksInfo: { [key in keyof typeof BlockEnum]: BlockInfoType } = {
   rangeInput: {
     title: 'Range Input Block',
     icon: NumbersTwoToneIcon,
-    isUnderDevelop: true,
+    isUnderDevelop: false,
   },
   dropdownInput: {
     title: 'Dropdown Input Block',

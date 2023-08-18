@@ -14,7 +14,7 @@ export function ViewerTextBlock({ data }: ViewerTextBlockPropsType) {
         </Typography>
 
         <Typography component="p" variant="body1">
-          {data.content.split('\n').map((line, index) => (
+          {data.content?.split('\n').map((line, index) => (
             <>
               {index !== 0 ? <br /> : undefined}
               <span key={index}>{line}</span>
